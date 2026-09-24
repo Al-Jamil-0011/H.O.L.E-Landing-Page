@@ -246,6 +246,23 @@ export const features: Feature[] = [
 
 export const roles: Role[] = [
   {
+    id: "inventory",
+    label: "Inventory Specialist",
+    icon: BoxesIcon,
+    description: "Manage sterile trays, track lot expiration, audit implants, and stage kits for dispatch.",
+    screen: {
+      greeting: "Good morning, Elena",
+      title: "Warehouse & Trays",
+      stats: [{ label: "Sterile trays", value: "38" }, { label: "Low stock bio", value: "3" }],
+      items: [
+        { title: "Spinal Fusion Tray · T-112", meta: "Sterilized · Staged for OR 4", status: "Ready", tone: "success" },
+        { title: "LOT-BG-2291 · Bone Allograft", meta: "Cold storage · Bin B", status: "Restock", tone: "warning" },
+        { title: "Hip Revision Tray · T-087", meta: "Sterile processing · Autoclave", status: "Processing", tone: "neutral" }],
+
+      action: "Scan tray barcode"
+    }
+  },
+  {
     id: "rep",
     label: "Representative",
     icon: BriefcaseIcon,
@@ -328,6 +345,23 @@ export const roles: Role[] = [
         { title: "Inventory audit · Q3", meta: "Warehouse A", status: "Complete", tone: "success" }],
 
       action: "Manage users"
+    }
+  },
+  {
+    id: "executive",
+    label: "Executive",
+    icon: TrendingUpIcon,
+    description: "Monitor real-time territory revenue, margins, rep commissions, and hospital case volumes.",
+    screen: {
+      greeting: "Executive briefing",
+      title: "Territory performance",
+      stats: [{ label: "Monthly revenue", value: "$452k" }, { label: "Gross margin", value: "34.2%" }],
+      items: [
+        { title: "Metro Hospital System", meta: "18 surgeries · 99.4% on-time", status: "Top tier", tone: "success" },
+        { title: "Territory Southeast", meta: "Ahead of Q3 target (+14%)", status: "Growth", tone: "brand" },
+        { title: "Tray turnaround cycle", meta: "92% same-day return", status: "Optimal", tone: "success" }],
+
+      action: "Executive report"
     }
   }];
 

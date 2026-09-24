@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 import { Reveal } from "./Reveal";
@@ -8,7 +8,7 @@ import { roles } from "../../data/landing";
 const SURGEON_IMAGE = "/surgeon-consultation.jpg";
 
 export function Roles() {
-  const [activeId, setActiveId] = useState(roles[0].id);
+  const [activeId, setActiveId] = useState("rep");
   const role = roles.find((r) => r.id === activeId) ?? roles[0];
 
   return (
@@ -16,46 +16,51 @@ export function Roles() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           id="roles-title"
-          align="left"
-          title="The right experience for every role."
-          description="Five roles, each seeing only what they need, working from the exact same real-time data."
+          align="center"
+          className="max-w-5xl mx-auto"
+          title={<span className="block sm:whitespace-nowrap">The right experience for every role.</span>}
+          description="Seven roles, each seeing only what they need, working from the exact same real-time data."
+          descriptionClassName="max-w-4xl sm:whitespace-nowrap"
         />
 
         <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:items-center">
-          {/* Left Column: Interactive Role Buttons (5 Roles) */}
+          {/* Left Column: Interactive Role Buttons (7 Roles) */}
           <div className="lg:col-span-5">
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {roles.map(({ id, label, icon: Icon, description }, i) => {
                 const active = id === activeId;
                 return (
-                  <Reveal key={id} delay={i * 0.04}>
+                  <Reveal key={id} delay={i * 0.03}>
                     <li>
                       <button
                         type="button"
                         aria-pressed={active}
                         onClick={() => setActiveId(id)}
                         onMouseEnter={() => setActiveId(id)}
-                        className={`group flex w-full items-start gap-4 rounded-2xl border p-4.5 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${active
+                        className={`group flex w-full items-center gap-3.5 rounded-2xl border px-4 py-3 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
+                          active
                             ? "border-brand-line bg-surface shadow-card ring-1 ring-brand/20 -translate-y-0.5"
                             : "border-transparent bg-surface/60 hover:bg-surface hover:border-line hover:-translate-y-0.5"
-                          }`}
+                        }`}
                       >
                         <span
-                          className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl transition-colors duration-200 ${active
-                              ? "bg-night text-brand"
-                              : "bg-surface ring-1 ring-line text-ink-muted group-hover:text-ink"
-                            }`}
+                          className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl transition-all duration-200 ${
+                            active
+                              ? "bg-night text-brand shadow-sm ring-1 ring-brand/30"
+                              : "bg-surface ring-1 ring-line text-ink-muted group-hover:text-brand-ink group-hover:bg-brand-soft group-hover:ring-brand/30"
+                          }`}
                         >
                           <Icon className="h-5 w-5" aria-hidden />
                         </span>
-                        <div>
+                        <div className="flex-1 min-w-0">
                           <span
-                            className={`block font-display text-base font-bold transition-colors ${active ? "text-ink" : "text-ink-muted group-hover:text-ink"
-                              }`}
+                            className={`block font-display text-base font-bold transition-colors ${
+                              active ? "text-ink" : "text-ink-muted group-hover:text-ink"
+                            }`}
                           >
                             {label}
                           </span>
-                          <span className="mt-1 block text-xs sm:text-sm leading-relaxed text-ink-muted">
+                          <span className="mt-0.5 block text-xs sm:text-sm leading-relaxed text-ink-muted">
                             {description}
                           </span>
                         </div>
