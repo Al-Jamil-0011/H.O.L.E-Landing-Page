@@ -20,11 +20,11 @@ export function Logistics() {
             align="left"
             title="From pickup to drop-off, always in view."
             description="Managers assign a driver, the driver updates each step from the app, and everyone sees the same shipment status." />
-          
+
           <Reveal className="mt-10">
             <ol className="space-y-4">
               {logisticsStatuses.map((s) =>
-              <li key={s.label} className="flex items-center gap-4">
+                <li key={s.label} className="flex items-center gap-4">
                   <span className={`grid h-7 w-7 place-items-center rounded-full ${s.done ? "bg-brand text-ink" : "bg-canvas ring-1 ring-line"}`} aria-hidden>
                     {s.done && <CheckIcon className="h-3.5 w-3.5" />}
                   </span>
@@ -63,10 +63,10 @@ export function Logistics() {
               <rect x="400" y="250" width="160" height="120" rx="14" fill="#DCEFE6" />
               <path d="M0 300 Q 200 280 300 320 T 600 330" stroke="#D4E6F0" strokeWidth="26" fill="none" />
               {[60, 150, 250, 350, 450, 540].map((x) =>
-              <line key={`v${x}`} x1={x} y1="0" x2={x} y2="420" stroke="#FFFFFF" strokeWidth="10" />
+                <line key={`v${x}`} x1={x} y1="0" x2={x} y2="420" stroke="#FFFFFF" strokeWidth="10" />
               )}
               {[50, 130, 210, 290, 380].map((y) =>
-              <line key={`h${y}`} x1="0" y1={y} x2="600" y2={y} stroke="#FFFFFF" strokeWidth="8" />
+                <line key={`h${y}`} x1="0" y1={y} x2="600" y2={y} stroke="#FFFFFF" strokeWidth="8" />
               )}
               <line x1="0" y1="420" x2="600" y2="0" stroke="#FFFFFF" strokeWidth="14" opacity="0.9" />
               <path d={ROUTE} stroke="#FFFFFF" strokeWidth="12" fill="none" strokeLinecap="round" />
@@ -76,9 +76,9 @@ export function Logistics() {
                 <circle r="14" fill="#00C5DA" opacity="0.2" />
                 <circle r="8" fill="#0E1718" stroke="#FFFFFF" strokeWidth="3" />
                 {reduce ?
-                <animateTransform attributeName="transform" type="translate" values="300 205" dur="1s" fill="freeze" /> :
+                  <animateTransform attributeName="transform" type="translate" values="300 205" dur="1s" fill="freeze" /> :
 
-                <animateMotion dur="16s" repeatCount="indefinite" path={ROUTE} keyPoints="0;1" keyTimes="0;1" calcMode="linear" />
+                  <animateMotion dur="16s" repeatCount="indefinite" path={ROUTE} keyPoints="0;1" keyTimes="0;1" calcMode="linear" />
                 }
               </g>
             </svg>

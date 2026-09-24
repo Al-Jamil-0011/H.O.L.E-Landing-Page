@@ -23,22 +23,21 @@ import { StatusChip } from "./StatusChip";
 type Role = "command" | "manager" | "rep" | "driver" | "finance";
 
 const ROLES: { id: Role; label: string; subtitle: string }[] = [
-  { id: "command",  label: "Command Hub", subtitle: "Global Multi-Role Operational Mesh" },
-  { id: "manager",  label: "Manager",     subtitle: "Regional Director · All Territories" },
-  { id: "rep",      label: "Sales Rep",   subtitle: "Southeast Territory · J. Rivera" },
-  { id: "driver",   label: "Driver",      subtitle: "Courier #8 · Active Route" },
-  { id: "finance",  label: "Finance",     subtitle: "Finance Ops · P. Shah" },
+  { id: "manager", label: "Manager", subtitle: "Regional Director · All Territories" },
+  { id: "rep", label: "Sales Rep", subtitle: "Southeast Territory · J. Rivera" },
+  { id: "driver", label: "Driver", subtitle: "Courier #8 · Active Route" },
+  { id: "finance", label: "Finance", subtitle: "Finance Ops · P. Shah" },
 ];
 
 /* ─── Shared nav ────────────────────────────────────────────────────────── */
 const NAV_ITEMS = [
-  { label: "Overview",        icon: LayoutDashboardIcon },
-  { label: "Sales",           icon: TrendingUpIcon },
-  { label: "Inventory",       icon: BoxesIcon },
-  { label: "Shipments",       icon: TruckIcon },
+  { label: "Overview", icon: LayoutDashboardIcon },
+  { label: "Sales", icon: TrendingUpIcon },
+  { label: "Inventory", icon: BoxesIcon },
+  { label: "Shipments", icon: TruckIcon },
   { label: "Purchase Orders", icon: ClipboardListIcon },
-  { label: "Finance",         icon: WalletIcon },
-  { label: "Admin",           icon: ShieldCheckIcon },
+  { label: "Finance", icon: WalletIcon },
+  { label: "Admin", icon: ShieldCheckIcon },
 ];
 
 /* ─── Role-specific dashboard content ──────────────────────────────────── */
@@ -49,13 +48,13 @@ function CommandHubView() {
     <div className="p-4 sm:p-6 space-y-5 bg-white">
       {/* 4 Multi-Role Metric Columns */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-0 divide-y md:divide-y-0 md:divide-x divide-slate-100">
-        
+
         {/* Col 1: Surgery Sales Pipeline */}
         <div className="pr-0 lg:pr-5 pb-4 md:pb-0">
           <div className="flex items-center justify-between text-[11px]">
             <span className="font-bold tracking-wider text-slate-400 uppercase text-[10px]">
               SURGERY SALES PIPELINE
-            </span>
+            </span>https://127.0.0.1:61535/static/artifacts/41cbfcb8-68b5-4dda-9c97-f93b9da7c002/.user_uploaded/media_1790231123044.png?csrf=61a48805-f4c4-4c57-89e9-afb38854232d
             <span className="inline-flex items-center gap-0.5 rounded bg-emerald-50 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700">
               <TrendingUpIcon className="h-2.5 w-2.5" /> +24.8% vs last cycle
             </span>
@@ -158,27 +157,27 @@ function CommandHubView() {
 
 function ManagerView() {
   const kpis = [
-    { label: "Sales this month", value: "$148,200", note: "+12.4% vs Aug",  primary: true },
-    { label: "Inventory units",  value: "1,536",    note: "3 low-stock items" },
-    { label: "In transit",       value: "9",         note: "36 open today" },
-    { label: "Commission queue", value: "$24,860",   note: "42 approved" },
+    { label: "Sales this month", value: "$148,200", note: "+12.4% vs Aug", primary: true },
+    { label: "Inventory units", value: "1,536", note: "3 low-stock items" },
+    { label: "In transit", value: "9", note: "36 open today" },
+    { label: "Commission queue", value: "$24,860", note: "42 approved" },
   ];
-  const bars  = [42, 55, 48, 62, 58, 70, 66, 78, 74, 86, 82, 94];
+  const bars = [42, 55, 48, 62, 58, 70, 66, 78, 74, 86, 82, 94];
   const stock = [
-    { label: "Implants",     pct: 82, tone: "bg-brand" },
-    { label: "Trays",        pct: 64, tone: "bg-brand" },
+    { label: "Implants", pct: 82, tone: "bg-brand" },
+    { label: "Trays", pct: 64, tone: "bg-brand" },
     { label: "Bio Products", pct: 28, tone: "bg-warning-ink" },
   ];
   const shipments = [
-    { id: "SHP-20418", route: "Warehouse → St. Mary's",    driver: "M. Lewis", status: "In transit",      tone: "brand"   as const },
-    { id: "SHP-20415", route: "Warehouse → Mercy General", driver: "A. Diaz",  status: "Driver assigned", tone: "warning" as const },
-    { id: "SHP-20412", route: "Northside → Memorial",      driver: "M. Lewis", status: "Delivered",       tone: "success" as const },
+    { id: "SHP-20418", route: "Warehouse → St. Mary's", driver: "M. Lewis", status: "In transit", tone: "brand" as const },
+    { id: "SHP-20415", route: "Warehouse → Mercy General", driver: "A. Diaz", status: "Driver assigned", tone: "warning" as const },
+    { id: "SHP-20412", route: "Northside → Memorial", driver: "M. Lewis", status: "Delivered", tone: "success" as const },
   ];
   const activity = [
-    { who: "Rep",     text: "J. Rivera created SL-10482",       time: "2m"  },
-    { who: "Manager", text: "D. Whitfield approved PO-3391",     time: "9m"  },
-    { who: "Driver",  text: "M. Lewis picked up T-112",          time: "18m" },
-    { who: "Finance", text: "P. Shah paid VP-771",               time: "41m" },
+    { who: "Rep", text: "J. Rivera created SL-10482", time: "2m" },
+    { who: "Manager", text: "D. Whitfield approved PO-3391", time: "9m" },
+    { who: "Driver", text: "M. Lewis picked up T-112", time: "18m" },
+    { who: "Finance", text: "P. Shah paid VP-771", time: "41m" },
   ];
 
   return (
@@ -282,14 +281,14 @@ function ManagerView() {
 
 function RepView() {
   const cases = [
-    { id: "SL-10482", surgeon: "Dr. A. Patel",  hospital: "St. Mary's · OR 4",     value: "$12,400", status: "Approved",  tone: "success"  as const },
-    { id: "SL-10479", surgeon: "Dr. K. Torres",  hospital: "Mercy General · OR 2",  value: "$8,750",  status: "Pending",   tone: "warning"  as const },
-    { id: "SL-10471", surgeon: "Dr. S. Park",    hospital: "Memorial · OR 1",        value: "$6,200",  status: "Submitted", tone: "brand"    as const },
+    { id: "SL-10482", surgeon: "Dr. A. Patel", hospital: "St. Mary's · OR 4", value: "$12,400", status: "Approved", tone: "success" as const },
+    { id: "SL-10479", surgeon: "Dr. K. Torres", hospital: "Mercy General · OR 2", value: "$8,750", status: "Pending", tone: "warning" as const },
+    { id: "SL-10471", surgeon: "Dr. S. Park", hospital: "Memorial · OR 1", value: "$6,200", status: "Submitted", tone: "brand" as const },
   ];
   const inventory = [
-    { label: "Spinal Fusion Tray T-112",  qty: "2 units",   avail: true  },
-    { label: "Pedicle Screws 6.5×45",     qty: "12 units",  avail: true  },
-    { label: "Bone Allograft 10cc",        qty: "1 unit",    avail: false },
+    { label: "Spinal Fusion Tray T-112", qty: "2 units", avail: true },
+    { label: "Pedicle Screws 6.5×45", qty: "12 units", avail: true },
+    { label: "Bone Allograft 10cc", qty: "1 unit", avail: false },
   ];
 
   return (
@@ -306,9 +305,9 @@ function RepView() {
 
       <div className="grid grid-cols-3 gap-2">
         {[
-          { label: "My sales MTD",   value: "$41,800", note: "+8.3% goal",   highlight: true },
-          { label: "Commission YTD", value: "$4,320",  note: "10% Tier A"                    },
-          { label: "Pending review", value: "2",       note: "cases queued"                  },
+          { label: "My sales MTD", value: "$41,800", note: "+8.3% goal", highlight: true },
+          { label: "Commission YTD", value: "$4,320", note: "10% Tier A" },
+          { label: "Pending review", value: "2", note: "cases queued" },
         ].map((k) => (
           <div key={k.label} className={`rounded-xl p-2.5 ${k.highlight ? "bg-brand-soft ring-1 ring-brand-line" : "bg-canvas ring-1 ring-line"}`}>
             <p className="text-[9px] text-ink-subtle">{k.label}</p>
@@ -384,9 +383,9 @@ function DriverView() {
         </div>
         <div className="grid grid-cols-3 divide-x divide-line p-0">
           {[
-            { label: "Speed",        value: "52 mph" },
-            { label: "Temp Logger",  value: "3.8 °C ✓" },
-            { label: "Seal",         value: "#99214 OK" },
+            { label: "Speed", value: "52 mph" },
+            { label: "Temp Logger", value: "3.8 °C ✓" },
+            { label: "Seal", value: "#99214 OK" },
           ].map((s) => (
             <div key={s.label} className="px-3 py-2 text-center">
               <p className="text-[9px] text-ink-subtle">{s.label}</p>
@@ -400,9 +399,9 @@ function DriverView() {
         <p className="text-[11px] font-semibold text-ink">Today's stops</p>
         <ul className="mt-2 space-y-2">
           {[
-            { stop: "1", loc: "Central Depot Bay 3",    time: "1:45 PM", done: true,  action: "Picked up" },
-            { stop: "2", loc: "St. Mary's OR 4",         time: "2:40 PM", done: false, action: "Deliver tray T-112" },
-            { stop: "3", loc: "Memorial · Supply Dock",  time: "4:15 PM", done: false, action: "Return empties" },
+            { stop: "1", loc: "Central Depot Bay 3", time: "1:45 PM", done: true, action: "Picked up" },
+            { stop: "2", loc: "St. Mary's OR 4", time: "2:40 PM", done: false, action: "Deliver tray T-112" },
+            { stop: "3", loc: "Memorial · Supply Dock", time: "4:15 PM", done: false, action: "Return empties" },
           ].map((s) => (
             <li key={s.stop} className="flex items-start gap-2 text-[10px]">
               <span className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[9px] font-bold ${s.done ? "bg-success-soft text-success-ink" : "bg-canvas ring-1 ring-line text-ink-subtle"}`}>{s.stop}</span>
@@ -429,9 +428,9 @@ function DriverView() {
 
 function FinanceView() {
   const ledger = [
-    { ref: "SL-10482", hospital: "St. Mary's",    gross: "$12,400", margin: "44.2%", rep: "Rivera",    status: "Closed",    tone: "success" as const },
-    { ref: "SL-10475", hospital: "Mercy General", gross: "$8,750",  margin: "41.8%", rep: "Torres",    status: "Invoiced",  tone: "brand"   as const },
-    { ref: "SL-10463", hospital: "Memorial",      gross: "$6,200",  margin: "38.5%", rep: "Park",      status: "Pending",   tone: "warning" as const },
+    { ref: "SL-10482", hospital: "St. Mary's", gross: "$12,400", margin: "44.2%", rep: "Rivera", status: "Closed", tone: "success" as const },
+    { ref: "SL-10475", hospital: "Mercy General", gross: "$8,750", margin: "41.8%", rep: "Torres", status: "Invoiced", tone: "brand" as const },
+    { ref: "SL-10463", hospital: "Memorial", gross: "$6,200", margin: "38.5%", rep: "Park", status: "Pending", tone: "warning" as const },
   ];
   return (
     <div className="space-y-3.5">
@@ -447,9 +446,9 @@ function FinanceView() {
 
       <div className="grid grid-cols-3 gap-2">
         {[
-          { label: "Net revenue MTD",  value: "$113,640", note: "+8.2% YoY",        highlight: true },
-          { label: "Commissions due",  value: "$14,820",  note: "42 reps · Fri pay"               },
-          { label: "Avg gross margin", value: "41.5%",    note: "Target: ≥40%"                     },
+          { label: "Net revenue MTD", value: "$113,640", note: "+8.2% YoY", highlight: true },
+          { label: "Commissions due", value: "$14,820", note: "42 reps · Fri pay" },
+          { label: "Avg gross margin", value: "41.5%", note: "Target: ≥40%" },
         ].map((k) => (
           <div key={k.label} className={`rounded-xl p-2.5 ${k.highlight ? "bg-night text-white" : "bg-canvas ring-1 ring-line"}`}>
             <p className={`text-[9px] ${k.highlight ? "text-white/60" : "text-ink-subtle"}`}>{k.label}</p>
@@ -478,9 +477,9 @@ function FinanceView() {
         <p className="text-[11px] font-semibold text-ink">Commission breakdown</p>
         <ul className="mt-2 space-y-2">
           {[
-            { name: "J. Rivera",  amt: "$1,240", tier: "Tier A · 10%", ready: true  },
-            { name: "K. Torres",  amt: "$875",   tier: "Tier A · 10%", ready: true  },
-            { name: "S. Park",    amt: "$620",   tier: "Tier B · 8%",  ready: false },
+            { name: "J. Rivera", amt: "$1,240", tier: "Tier A · 10%", ready: true },
+            { name: "K. Torres", amt: "$875", tier: "Tier A · 10%", ready: true },
+            { name: "S. Park", amt: "$620", tier: "Tier B · 8%", ready: false },
           ].map((c) => (
             <li key={c.name} className="flex items-center justify-between text-[10px]">
               <span className="font-semibold text-ink">{c.name}</span>
@@ -503,13 +502,13 @@ function FinanceView() {
 export function HeroDashboard() {
   const [activeRole, setActiveRole] = useState<Role>("command");
 
-  const currentRole = ROLES.find((r) => r.id === activeRole)!;
+  const currentRole = ROLES.find((r) => r.id === activeRole) || ROLES[0];
 
   const navActiveLabel =
     activeRole === "manager" ? "Overview" :
-    activeRole === "rep"     ? "Sales"    :
-    activeRole === "driver"  ? "Shipments":
-                               "Finance";
+      activeRole === "rep" ? "Sales" :
+        activeRole === "driver" ? "Shipments" :
+          "Finance";
 
   return (
     <div
@@ -524,9 +523,6 @@ export function HeroDashboard() {
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-          </span>
-          <span className="font-semibold text-slate-800 text-[12px] sm:text-[13px]">
-            OrthoGlobal Health Network // Global Command Hub
           </span>
           <span className="hidden sm:inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-2 py-0.5 text-[10px] font-semibold text-[#00707E]">
             Mesh v4.19 Stable
@@ -550,11 +546,10 @@ export function HeroDashboard() {
                 type="button"
                 onMouseEnter={() => setActiveRole(r.id)}
                 onClick={() => setActiveRole(r.id)}
-                className={`inline-flex items-center gap-1 rounded-md px-2 py-1 text-[10px] font-semibold transition-all duration-150 ${
-                  activeRole === r.id
-                    ? "bg-[#00707E] text-white shadow-sm"
-                    : "text-slate-600 hover:bg-white/80 hover:text-slate-900"
-                }`}
+                className={`inline-flex items-center gap-1 rounded-md px-2 py-1 text-[10px] font-semibold transition-all duration-150 ${activeRole === r.id
+                  ? "bg-[#00707E] text-white shadow-sm"
+                  : "text-slate-600 hover:bg-white/80 hover:text-slate-900"
+                  }`}
               >
                 {activeRole === r.id && <span className="h-1.5 w-1.5 rounded-full bg-white/70" />}
                 {r.label}
@@ -587,9 +582,8 @@ export function HeroDashboard() {
                 return (
                   <li
                     key={label}
-                    className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-[11px] font-medium transition-colors ${
-                      isActive ? "bg-teal-50 text-[#00707E] font-semibold" : "text-slate-600 hover:text-slate-900"
-                    }`}
+                    className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-[11px] font-medium transition-colors ${isActive ? "bg-teal-50 text-[#00707E] font-semibold" : "text-slate-600 hover:text-slate-900"
+                      }`}
                   >
                     <Icon className="h-3.5 w-3.5 shrink-0" />
                     <span className="truncate">{label}</span>
@@ -623,8 +617,8 @@ export function HeroDashboard() {
                 transition={{ duration: 0.2, ease }}
               >
                 {activeRole === "manager" && <ManagerView />}
-                {activeRole === "rep"     && <RepView />}
-                {activeRole === "driver"  && <DriverView />}
+                {activeRole === "rep" && <RepView />}
+                {activeRole === "driver" && <DriverView />}
                 {activeRole === "finance" && <FinanceView />}
               </motion.div>
             </AnimatePresence>

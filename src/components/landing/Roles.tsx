@@ -35,26 +35,23 @@ export function Roles() {
                         aria-pressed={active}
                         onClick={() => setActiveId(id)}
                         onMouseEnter={() => setActiveId(id)}
-                        className={`group flex w-full items-start gap-4 rounded-2xl border p-4.5 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
-                          active
+                        className={`group flex w-full items-start gap-4 rounded-2xl border p-4.5 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${active
                             ? "border-brand-line bg-surface shadow-card ring-1 ring-brand/20 -translate-y-0.5"
                             : "border-transparent bg-surface/60 hover:bg-surface hover:border-line hover:-translate-y-0.5"
-                        }`}
+                          }`}
                       >
                         <span
-                          className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl transition-colors duration-200 ${
-                            active
+                          className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl transition-colors duration-200 ${active
                               ? "bg-night text-brand"
                               : "bg-surface ring-1 ring-line text-ink-muted group-hover:text-ink"
-                          }`}
+                            }`}
                         >
                           <Icon className="h-5 w-5" aria-hidden />
                         </span>
                         <div>
                           <span
-                            className={`block font-display text-base font-bold transition-colors ${
-                              active ? "text-ink" : "text-ink-muted group-hover:text-ink"
-                            }`}
+                            className={`block font-display text-base font-bold transition-colors ${active ? "text-ink" : "text-ink-muted group-hover:text-ink"
+                              }`}
                           >
                             {label}
                           </span>

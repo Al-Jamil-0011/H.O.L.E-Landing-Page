@@ -99,7 +99,8 @@ export const fragmentedNodes = [
 export const painPoints = [
   { title: "Sales live in spreadsheets", text: "Reps log surgeries by text and email. Managers approve without context." },
   { title: "Inventory is a guess", text: "Nobody knows where a tray is until the morning of surgery." },
-  { title: "Commissions are reconciled by hand", text: "Finance chases paperwork across sales, POs and vendor invoices." }];
+  { title: "Commissions are reconciled by hand", text: "Finance chases paperwork across sales, POs and vendor invoices." },
+  { title: "Loaner sets are tracked manually", text: "Loaner sets are tracked manually, making case coverage hard to confirm." }];
 
 
 export const roleChain = [

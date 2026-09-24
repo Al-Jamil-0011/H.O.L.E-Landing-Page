@@ -74,7 +74,7 @@ export function Ecosystem() {
                 <img
                   src={ECOSYSTEM_IMAGE}
                   alt="Connected medical device ecosystem showing real-time data streams between Hospital Hub, Patient Transport, Sterile Tray and Operating Room"
-                  className="h-auto w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+                  className="h-auto w-full object-cover transition-transform duration-400 hover:scale-[1.02]"
                 />
 
                 {/* Floating pill tags on illustration */}

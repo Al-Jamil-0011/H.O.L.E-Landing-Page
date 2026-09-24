@@ -1,4 +1,3 @@
-import React from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import {
   AppleIcon,
@@ -14,8 +13,6 @@ import {
   WalletIcon,
 } from "lucide-react";
 import { HeroDashboard } from "./HeroDashboard";
-import { FloatingCard } from "./FloatingCard";
-import { heroFloatingCards } from "../../data/landing";
 
 const HERO_IMAGE = "/b82a359f-8057-4983-97b6-90f5e6a5a822.jpg";
 const ease = [0.23, 1, 0.32, 1] as const;
@@ -24,7 +21,7 @@ export function Hero() {
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
   const imageY = useTransform(scrollY, [0, 900], [0, reduce ? 0 : 90]);
-  const dashY  = useTransform(scrollY, [0, 900], [0, reduce ? 0 : -25]);
+  const dashY = useTransform(scrollY, [0, 900], [0, reduce ? 0 : -25]);
 
   return (
     <section
@@ -36,14 +33,14 @@ export function Hero() {
       <motion.div
         aria-hidden
         style={{ y: imageY }}
-        className="pointer-events-none absolute inset-x-0 top-0 h-[700px] select-none opacity-20"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[700px] select-none opacity-100"
       >
         <img
           src={HERO_IMAGE}
           alt=""
           className="h-full w-full object-cover object-[center_20%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/80 to-white" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white" />
         <div
           className="absolute inset-0"
           style={{
@@ -66,7 +63,7 @@ export function Hero() {
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, ease }}
-          className="mx-auto max-w-4xl text-center"
+          className="mx-auto max-w-5xl text-center"
         >
           {/* Eyebrow: Exact pill from reference image */}
           <div className="inline-flex items-center gap-2 rounded-full border border-teal-200/80 bg-teal-50/80 px-4 py-1.5 text-[11px] font-semibold tracking-[0.14em] uppercase text-[#00707E] shadow-sm">
@@ -77,10 +74,11 @@ export function Hero() {
           {/* Main Headline: Exact typography and text from reference image */}
           <h1
             id="hero-title"
-            className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold leading-[1.08] tracking-[-0.03em] text-slate-900"
+            className="mt-6 font-display text-4xl sm:text-5xl lg:text-[52px] xl:text-[54px] font-extrabold leading-[1.12] tracking-[-0.03em] text-slate-900"
           >
-            One Platform. Complete Control Over
-            <br className="hidden sm:inline" /> Healthcare Operations.
+            <span className="inline-block">One Platform. Complete Control Over</span>
+            <br className="hidden sm:inline" />{" "}
+            <span className="inline-block">Healthcare Operations.</span>
           </h1>
 
           {/* Subline: Exact description from reference image */}
@@ -96,7 +94,7 @@ export function Hero() {
               href="#demo"
               className="group inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#00707E] px-7 text-[15px] font-medium text-white shadow-sm transition-all duration-150 ease-out hover:bg-[#005E6A] hover:shadow active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00707E] focus-visible:ring-offset-2"
             >
-              Request a Demo
+              Explore The Platform
               <ArrowRightIcon className="h-4 w-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5" aria-hidden="true" />
             </a>
 
@@ -106,33 +104,10 @@ export function Hero() {
               className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-6 text-[15px] font-medium text-slate-800 shadow-sm transition-all duration-150 ease-out hover:border-slate-300 hover:bg-slate-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
             >
               <CompassIcon className="h-4 w-4 text-slate-600" aria-hidden="true" />
-              Explore the Platform
+              Download Now
             </a>
           </div>
 
-          {/* App Store / Google Play Badges directly below buttons */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#demo"
-              className="inline-flex items-center gap-2.5 rounded-lg border border-slate-200/90 bg-white px-3.5 py-1.5 text-left text-xs font-medium text-slate-800 shadow-sm transition-colors hover:border-slate-300 hover:bg-slate-50"
-            >
-              <AppleIcon className="h-4 w-4 text-slate-900 fill-current" aria-hidden="true" />
-              <div className="leading-tight">
-                <span className="block text-[9px] uppercase tracking-wider text-slate-400">Available on</span>
-                <span className="font-semibold text-slate-800">Apple iOS</span>
-              </div>
-            </a>
-            <a
-              href="#demo"
-              className="inline-flex items-center gap-2.5 rounded-lg border border-slate-200/90 bg-white px-3.5 py-1.5 text-left text-xs font-medium text-slate-800 shadow-sm transition-colors hover:border-slate-300 hover:bg-slate-50"
-            >
-              <PlayIcon className="h-4 w-4 text-slate-900 fill-current" aria-hidden="true" />
-              <div className="leading-tight">
-                <span className="block text-[9px] uppercase tracking-wider text-slate-400">Get it for</span>
-                <span className="font-semibold text-slate-800">Google Play</span>
-              </div>
-            </a>
-          </div>
         </motion.div>
 
         {/* ── Dashboard Showcase ──────────────────────────────────────────── */}
@@ -168,11 +143,6 @@ export function Hero() {
           >
             <HeroDashboard />
           </motion.div>
-
-          {/* 4 Floating contextual info cards */}
-          {heroFloatingCards.map(({ id, ...card }) => (
-            <FloatingCard key={id} {...card} />
-          ))}
         </motion.div>
 
         {/* ── 6-module Operational Strip from Reference Image ────────────── */}

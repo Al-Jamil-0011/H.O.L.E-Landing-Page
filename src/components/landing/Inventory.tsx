@@ -13,19 +13,23 @@ export function Inventory() {
   const [activeId, setActiveId] = useState(inventoryCategories[0].id);
   const category = inventoryCategories.find((c) => c.id === activeId) ?? inventoryCategories[0];
   const stats = [
-  { label: "Available", value: category.available, primary: true },
-  { label: "Assigned", value: category.assigned },
-  { label: "In movement", value: category.moving }];
+    { label: "Available", value: category.available, primary: true },
+    { label: "Assigned", value: category.assigned },
+    { label: "In movement", value: category.moving }];
 
 
   return (
-    <section aria-labelledby="inventory-title" className="bg-canvas py-24 sm:py-32">
+    <section aria-labelledby="inventory-title" className="bg-canvas py-28 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           id="inventory-title"
           title="Know what you have. Know where it is."
-          description="Implants, trays and bio products tracked by serial and lot, from warehouse shelf to operating room." />
-        
+          description="Implants, trays and bio products tracked by serial and lot, from warehouse shelf to operating room."
+          className="max-w-5xl"
+          titleClassName="whitespace-normal md:whitespace-nowrap"
+          descriptionClassName="whitespace-normal lg:whitespace-nowrap max-w-5xl"
+        />
+
 
         <div className="mt-14 grid gap-4 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
@@ -47,15 +51,14 @@ export function Inventory() {
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-5 py-4 sm:px-6">
                 <div role="tablist" aria-label="Inventory categories" className="inline-flex rounded-xl bg-canvas p-1 ring-1 ring-line">
                   {inventoryCategories.map((c) =>
-                  <button
-                    key={c.id}
-                    role="tab"
-                    aria-selected={c.id === activeId}
-                    onClick={() => setActiveId(c.id)}
-                    className={`whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-semibold transition-[background-color,color] duration-150 ${
-                    c.id === activeId ? "bg-surface text-ink shadow-card" : "text-ink-muted hover:text-ink"}`
-                    }>
-                    
+                    <button
+                      key={c.id}
+                      role="tab"
+                      aria-selected={c.id === activeId}
+                      onClick={() => setActiveId(c.id)}
+                      className={`whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-semibold transition-[background-color,color] duration-150 ${c.id === activeId ? "bg-surface text-ink shadow-card" : "text-ink-muted hover:text-ink"}`
+                      }>
+
                       {c.label}
                     </button>
                   )}
@@ -67,7 +70,7 @@ export function Inventory() {
 
               <div className="grid grid-cols-3 divide-x divide-line border-b border-line">
                 {stats.map((s) =>
-                <div key={s.label} className="px-5 py-5 sm:px-6">
+                  <div key={s.label} className="px-5 py-5 sm:px-6">
                     <p className="text-xs text-ink-muted">{s.label}</p>
                     <p className={`mt-1 font-display font-extrabold tracking-tight ${s.primary ? "text-3xl text-ink sm:text-4xl" : "text-2xl text-ink-muted"}`}>
                       <CountUp key={`${category.id}-${s.label}`} value={s.value} />
@@ -84,9 +87,9 @@ export function Inventory() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.15 }}
                   className="divide-y divide-line">
-                  
+
                   {category.items.map((item) =>
-                  <li key={item.serial} className="grid grid-cols-[1fr_auto] items-center gap-3 px-5 py-3.5 transition-colors duration-150 hover:bg-canvas sm:grid-cols-[1.4fr_1fr_1fr_auto] sm:px-6">
+                    <li key={item.serial} className="grid grid-cols-[1fr_auto] items-center gap-3 px-5 py-3.5 transition-colors duration-150 hover:bg-canvas sm:grid-cols-[1.4fr_1fr_1fr_auto] sm:px-6">
                       <span className="text-sm font-semibold text-ink">{item.name}</span>
                       <span className="hidden font-mono text-xs text-ink-muted sm:block">{item.serial}</span>
                       <span className="hidden text-sm text-ink-muted sm:block">{item.location}</span>
@@ -102,7 +105,7 @@ export function Inventory() {
                 </p>
                 <ol className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
                   {inventoryMovement.map((m, i) =>
-                  <li key={m.step} className="relative">
+                    <li key={m.step} className="relative">
                       <span className={`block h-1 rounded-full ${i < 3 ? "bg-brand" : "bg-line"}`} aria-hidden />
                       <p className="mt-2 text-sm font-semibold text-ink">{m.step}</p>
                       <p className="text-xs text-ink-muted">{m.place}</p>

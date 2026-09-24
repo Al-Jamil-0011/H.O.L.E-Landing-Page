@@ -19,7 +19,7 @@ export function MobileApp() {
             align="left"
             title="Your operations, wherever work happens."
             description="Reps in the OR, drivers on the road, managers between meetings. The H.O.L.E. mobile app is live on iOS and Android." />
-          
+
           <Reveal>
             <StoreBadges />
           </Reveal>
@@ -27,14 +27,14 @@ export function MobileApp() {
 
         <div className="no-scrollbar -mx-5 mt-16 flex gap-6 overflow-x-auto px-5 pb-6 lg:mx-0 lg:grid lg:grid-cols-6 lg:gap-4 lg:overflow-visible lg:px-0">
           {mobileScreens.map((m, i) =>
-          <motion.figure
-            key={m.label}
-            className={`shrink-0 ${offsets[i]}`}
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.3, delay: i * 0.05, ease: [0.23, 1, 0.32, 1] }}>
-            
+            <motion.figure
+              key={m.label}
+              className={`shrink-0 ${offsets[i]}`}
+              initial={reduce ? false : { opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.3, delay: i * 0.05, ease: [0.23, 1, 0.32, 1] }}>
+
               <div className="transition-transform duration-200 ease-out hover:-translate-y-1.5">
                 <PhoneScreen screen={m.screen} size="sm" />
               </div>
