@@ -37,26 +37,23 @@ export function Roles() {
                         aria-pressed={active}
                         onClick={() => setActiveId(id)}
                         onMouseEnter={() => setActiveId(id)}
-                        className={`group flex w-full items-center gap-3.5 rounded-2xl border px-4 py-3 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
-                          active
-                            ? "border-brand-line bg-surface shadow-card ring-1 ring-brand/20 -translate-y-0.5"
-                            : "border-transparent bg-surface/60 hover:bg-surface hover:border-line hover:-translate-y-0.5"
-                        }`}
+                        className={`group flex w-full items-center gap-3.5 rounded-2xl border px-4 py-3 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${active
+                          ? "border-brand-line bg-surface shadow-card ring-1 ring-brand/20 -translate-y-0.5"
+                          : "border-transparent bg-surface/60 hover:bg-surface hover:border-line hover:-translate-y-0.5"
+                          }`}
                       >
                         <span
-                          className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl transition-all duration-200 ${
-                            active
-                              ? "bg-night text-brand shadow-sm ring-1 ring-brand/30"
-                              : "bg-surface ring-1 ring-line text-ink-muted group-hover:text-brand-ink group-hover:bg-brand-soft group-hover:ring-brand/30"
-                          }`}
+                          className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl transition-all duration-200 ${active
+                            ? "bg-night text-brand shadow-sm ring-1 ring-brand/30"
+                            : "bg-surface ring-1 ring-line text-ink-muted group-hover:text-brand-ink group-hover:bg-brand-soft group-hover:ring-brand/30"
+                            }`}
                         >
                           <Icon className="h-5 w-5" aria-hidden />
                         </span>
                         <div className="flex-1 min-w-0">
                           <span
-                            className={`block font-display text-base font-bold transition-colors ${
-                              active ? "text-ink" : "text-ink-muted group-hover:text-ink"
-                            }`}
+                            className={`block font-display text-base font-bold transition-colors ${active ? "text-ink" : "text-ink-muted group-hover:text-ink"
+                              }`}
                           >
                             {label}
                           </span>

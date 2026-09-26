@@ -1,6 +1,10 @@
-import React from "react";
+import { ThemeProvider } from "./context/ThemeContext";
 import { Landing } from "./pages/Landing";
 
 export function App() {
-  return <Landing />;
+  return (
+    <ThemeProvider>
+      <Landing />
+    </ThemeProvider>
+  );
 }

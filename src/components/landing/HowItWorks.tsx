@@ -335,7 +335,7 @@ export function HowItWorks() {
                         setActive((prev) => (prev + 1) % steps.length);
                         setIsPaused(true);
                       }}
-                      className="inline-flex h-9 items-center gap-1.5 rounded-xl bg-night px-3.5 text-xs font-semibold text-white transition-colors hover:bg-night-2 active:scale-95 cursor-pointer"
+                      className="inline-flex h-9 items-center gap-1.5 rounded-xl bg-night dark:bg-brand px-3.5 text-xs font-semibold text-white dark:text-slate-950 transition-colors hover:bg-night-2 dark:hover:bg-[#12D2E6] active:scale-95 cursor-pointer shadow-sm"
                       aria-label="Next step"
                     >
                       Next
@@ -370,7 +370,7 @@ export function HowItWorks() {
 
                         {/* Floating Badges Over Image */}
                         <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-none">
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-0.5 text-[11px] font-semibold text-ink shadow-sm backdrop-blur-md">
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 dark:bg-night/90 dark:border dark:border-white/10 px-2.5 py-0.5 text-[11px] font-semibold text-ink dark:text-white shadow-sm backdrop-blur-md">
                             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
                             {currentStep.stageTag}
                           </span>
@@ -444,17 +444,17 @@ export function HowItWorks() {
                               <p className="text-[11px] font-semibold text-ink-subtle uppercase tracking-wider">
                                 Manager Review &amp; Clearance
                               </p>
-                              <div className="flex items-center justify-between rounded-xl bg-emerald-50/60 border border-emerald-100 p-2.5">
+                              <div className="flex items-center justify-between rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-800/40 p-2.5">
                                 <span className="font-medium text-ink">Facility Credit Limit</span>
-                                <span className="text-emerald-700 font-semibold">✓ $150k Approved</span>
+                                <span className="text-emerald-700 dark:text-emerald-400 font-semibold">✓ $150k Approved</span>
                               </div>
-                              <div className="flex items-center justify-between rounded-xl bg-emerald-50/60 border border-emerald-100 p-2.5">
+                              <div className="flex items-center justify-between rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-800/40 p-2.5">
                                 <span className="font-medium text-ink">Depot Inventory Reserved</span>
-                                <span className="text-emerald-700 font-semibold">✓ 3 Items Locked</span>
+                                <span className="text-emerald-700 dark:text-emerald-400 font-semibold">✓ 3 Items Locked</span>
                               </div>
-                              <div className="flex items-center justify-between rounded-xl bg-emerald-50/60 border border-emerald-100 p-2.5">
+                              <div className="flex items-center justify-between rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-800/40 p-2.5">
                                 <span className="font-medium text-ink">Target Margin Check</span>
-                                <span className="text-emerald-700 font-semibold">✓ 44.2% Pass</span>
+                                <span className="text-emerald-700 dark:text-emerald-400 font-semibold">✓ 44.2% Pass</span>
                               </div>
                               <div className="mt-2.5 flex items-center justify-between pt-1">
                                 <span className="text-ink-muted">Authorized by:</span>
@@ -563,7 +563,7 @@ export function HowItWorks() {
                               </div>
                               <div className="flex items-center justify-between pt-1">
                                 <span className="font-medium text-ink">Net Operating Margin:</span>
-                                <span className="font-display text-sm font-extrabold text-emerald-700">
+                                <span className="font-display text-sm font-extrabold text-emerald-700 dark:text-emerald-400">
                                   +$9,624.00 (77.6%)
                                 </span>
                               </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ScanLineIcon } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
@@ -35,7 +35,7 @@ export function Inventory() {
           <Reveal className="lg:col-span-4">
             <figure className="relative h-full min-h-[420px] overflow-hidden rounded-3xl">
               <img src={INVENTORY_IMAGE} alt="Sterile surgical trays and implant kits organized on hospital supply shelving" className="absolute inset-0 h-full w-full object-cover" />
-              <figcaption className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/80 bg-white/85 p-4 backdrop-blur-xl">
+              <figcaption className="absolute inset-x-4 bottom-4 rounded-2xl border border-line bg-surface/90 dark:bg-surface/95 p-4 backdrop-blur-xl shadow-card transition-colors duration-200">
                 <div className="flex items-center justify-between">
                   <p className="font-mono text-xs text-ink-subtle">T-112</p>
                   <StatusChip label="Checked in" tone="success" />

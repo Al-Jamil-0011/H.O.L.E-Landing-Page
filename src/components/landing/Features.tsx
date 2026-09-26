@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 import { Reveal } from "./Reveal";
@@ -30,13 +30,16 @@ export function Features() {
                   aria-selected={active}
                   aria-controls={`panel-${id}`}
                   onClick={() => setActiveId(id)}
-                  className={`inline-flex h-10 shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-4 text-sm font-semibold transition-[background-color,color] duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
-                  active ? "bg-night text-white" : "bg-canvas text-ink-muted hover:text-ink"}`
-                  }>
-                  
-                  <Icon className={`h-4 w-4 ${active ? "text-brand" : ""}`} aria-hidden />
+                  className={`inline-flex h-10 shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-4 text-sm font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
+                    active
+                      ? "bg-night text-white dark:bg-brand dark:text-slate-950 font-bold shadow-sm"
+                      : "border border-line bg-canvas text-ink-muted hover:text-ink hover:border-brand/40"
+                  }`}
+                >
+                  <Icon className={`h-4 w-4 ${active ? "text-brand dark:text-slate-950" : ""}`} aria-hidden />
                   {label}
-                </button>);
+                </button>
+              );
 
             })}
           </div>
@@ -70,7 +73,7 @@ export function Features() {
                   <p className="text-sm font-semibold text-ink">{feature.table.title}</p>
                   <div className="flex gap-1.5" aria-hidden>
                     <span className="h-7 w-20 rounded-lg bg-canvas ring-1 ring-line" />
-                    <span className="h-7 w-16 rounded-lg bg-night" />
+                    <span className="h-7 w-16 rounded-lg bg-night dark:bg-brand" />
                   </div>
                 </div>
                 <div className="overflow-x-auto">

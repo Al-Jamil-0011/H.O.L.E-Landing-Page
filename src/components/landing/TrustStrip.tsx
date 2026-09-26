@@ -1,4 +1,3 @@
-import React from "react";
 import { Reveal } from "./Reveal";
 import { modules } from "../../data/landing";
 
@@ -19,7 +18,7 @@ const partners = [
 
 export function TrustStrip() {
   return (
-    <section aria-label="Operational scale and trust" className="border-y border-line bg-white py-14 sm:py-16">
+    <section aria-label="Operational scale and trust" className="border-y border-line bg-surface py-14 sm:py-16 transition-colors duration-200">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         {/* Healthcare Network Logos / Social Proof */}
         <Reveal>
@@ -31,7 +30,7 @@ export function TrustStrip() {
               {partners.map((partner) => (
                 <span
                   key={partner}
-                  className="rounded-lg px-3 py-1 font-display tracking-tight text-ink-muted transition-colors hover:text-ink"
+                  className="rounded-lg px-3 py-1 font-display tracking-tight text-ink-muted transition-colors hover:text-ink hover:bg-surface-muted"
                 >
                   {partner}
                 </span>
@@ -42,12 +41,12 @@ export function TrustStrip() {
 
         {/* 4 Clean Impact Metrics */}
         <Reveal className="mt-12">
-          <div className="grid grid-cols-2 gap-4 rounded-3xl border border-line/70 bg-canvas/60 p-6 sm:grid-cols-4 sm:p-8">
+          <div className="grid grid-cols-2 gap-4 rounded-3xl border border-line bg-canvas p-6 sm:grid-cols-4 sm:p-8">
             {stats.map((s, i) => (
               <div
                 key={s.label}
                 className={`text-center sm:text-left ${
-                  i > 0 ? "sm:border-l sm:border-line/70 sm:pl-6 lg:pl-8" : ""
+                  i > 0 ? "sm:border-l sm:border-line sm:pl-6 lg:pl-8" : ""
                 }`}
               >
                 <p className="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
@@ -66,9 +65,9 @@ export function TrustStrip() {
             {modules.map(({ label, note, icon: Icon }) => (
               <div
                 key={label}
-                className="flex items-center gap-3 rounded-2xl border border-line/60 bg-white p-3.5 shadow-subtle transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/40"
+                className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-3.5 shadow-subtle transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-card"
               >
-                <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand-soft text-brand-ink">
+                <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand-soft text-brand-ink dark:bg-brand/15 dark:text-brand">
                   <Icon className="h-4 w-4" aria-hidden />
                 </div>
                 <div className="min-w-0">

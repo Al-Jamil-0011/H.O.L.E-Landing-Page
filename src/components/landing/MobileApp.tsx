@@ -1,4 +1,3 @@
-import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 import { Reveal } from "./Reveal";

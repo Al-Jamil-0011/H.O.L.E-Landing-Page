@@ -1,4 +1,3 @@
-import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 import { Reveal } from "./Reveal";
@@ -11,7 +10,7 @@ export function Ecosystem() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="ecosystem" aria-labelledby="ecosystem-title" className="bg-canvas/50 py-24 sm:py-32">
+    <section id="ecosystem" aria-labelledby="ecosystem-title" className="bg-canvas py-24 sm:py-32 transition-colors duration-200">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           id="ecosystem-title"
@@ -29,7 +28,7 @@ export function Ecosystem() {
                   <p className="font-display text-base font-bold text-ink">Role-to-Role Handover</p>
                   <p className="text-xs text-ink-subtle">Zero data lost between transitions</p>
                 </div>
-                <span className="rounded-full bg-brand-soft px-2.5 py-1 text-[11px] font-semibold text-brand-ink border border-brand-line">
+                <span className="rounded-full bg-brand-soft px-2.5 py-1 text-[11px] font-semibold text-brand-ink border border-brand-line dark:text-brand dark:bg-brand/10">
                   Live Sync
                 </span>
               </div>
@@ -47,7 +46,7 @@ export function Ecosystem() {
                 {roleChain.map(({ label, detail, icon: Icon }, idx) => (
                   <li key={label} className="relative flex items-center gap-4">
                     <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-surface ring-1 ring-line shadow-subtle">
-                      <Icon className="h-4 w-4 text-brand-ink" aria-hidden />
+                      <Icon className="h-4 w-4 text-brand-ink dark:text-brand" aria-hidden />
                     </span>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center justify-between">
@@ -70,7 +69,7 @@ export function Ecosystem() {
           <Reveal className="lg:col-span-7">
             <div className="relative overflow-hidden rounded-3xl border border-line bg-surface p-3 sm:p-4 shadow-card">
               {/* Illustration Frame */}
-              <div className="relative overflow-hidden rounded-2xl bg-white">
+              <div className="relative overflow-hidden rounded-2xl bg-surface">
                 <img
                   src={ECOSYSTEM_IMAGE}
                   alt="Connected medical device ecosystem showing real-time data streams between Hospital Hub, Patient Transport, Sterile Tray and Operating Room"
@@ -78,12 +77,12 @@ export function Ecosystem() {
                 />
 
                 {/* Floating pill tags on illustration */}
-                <div className="absolute left-4 top-4 hidden sm:flex items-center gap-2 rounded-xl border border-white/80 bg-white/90 px-3 py-1.5 shadow-subtle backdrop-blur-md">
+                <div className="absolute left-4 top-4 hidden sm:flex items-center gap-2 rounded-xl border border-line bg-surface/90 px-3 py-1.5 shadow-subtle backdrop-blur-md">
                   <Sparkles className="h-3.5 w-3.5 text-brand" />
                   <span className="text-xs font-semibold text-ink">Automated Interoperability</span>
                 </div>
 
-                <div className="absolute right-4 bottom-4 hidden sm:flex items-center gap-2 rounded-xl border border-white/80 bg-white/90 px-3 py-1.5 shadow-subtle backdrop-blur-md">
+                <div className="absolute right-4 bottom-4 hidden sm:flex items-center gap-2 rounded-xl border border-line bg-surface/90 px-3 py-1.5 shadow-subtle backdrop-blur-md">
                   <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                   <span className="text-xs font-semibold text-ink">99.99% Cloud Uptime</span>
                 </div>
@@ -91,22 +90,22 @@ export function Ecosystem() {
 
               {/* Bottom Feature Badges */}
               <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3 p-2">
-                <div className="flex items-center gap-2.5 rounded-xl bg-canvas p-3 text-xs">
-                  <div className="grid h-6 w-6 place-items-center rounded-lg bg-brand-soft text-brand-ink">
+                <div className="flex items-center gap-2.5 rounded-xl bg-canvas p-3 text-xs border border-line/50">
+                  <div className="grid h-6 w-6 place-items-center rounded-lg bg-brand-soft text-brand-ink dark:bg-brand/15 dark:text-brand">
                     <Check className="h-3.5 w-3.5" />
                   </div>
                   <span className="font-semibold text-ink">Zero Data Silos</span>
                 </div>
 
-                <div className="flex items-center gap-2.5 rounded-xl bg-canvas p-3 text-xs">
-                  <div className="grid h-6 w-6 place-items-center rounded-lg bg-brand-soft text-brand-ink">
+                <div className="flex items-center gap-2.5 rounded-xl bg-canvas p-3 text-xs border border-line/50">
+                  <div className="grid h-6 w-6 place-items-center rounded-lg bg-brand-soft text-brand-ink dark:bg-brand/15 dark:text-brand">
                     <Check className="h-3.5 w-3.5" />
                   </div>
                   <span className="font-semibold text-ink">Instant Audit Trails</span>
                 </div>
 
-                <div className="flex items-center gap-2.5 rounded-xl bg-canvas p-3 text-xs">
-                  <div className="grid h-6 w-6 place-items-center rounded-lg bg-brand-soft text-brand-ink">
+                <div className="flex items-center gap-2.5 rounded-xl bg-canvas p-3 text-xs border border-line/50">
+                  <div className="grid h-6 w-6 place-items-center rounded-lg bg-brand-soft text-brand-ink dark:bg-brand/15 dark:text-brand">
                     <Check className="h-3.5 w-3.5" />
                   </div>
                   <span className="font-semibold text-ink">HIPAA &amp; SOC-2 Ready</span>

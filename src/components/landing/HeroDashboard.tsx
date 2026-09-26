@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   BoxesIcon,
@@ -6,7 +6,6 @@ import {
   ClipboardListIcon,
   CoinsIcon,
   LayoutDashboardIcon,
-  MapPinIcon,
   Navigation2Icon,
   PlusIcon,
   RadioIcon,
@@ -17,6 +16,7 @@ import {
   UserCogIcon,
   WalletIcon,
 } from "lucide-react";
+import { Logo } from "./Logo";
 import { StatusChip } from "./StatusChip";
 
 /* ─── Role definitions ─────────────────────────────────────────────────── */
@@ -45,27 +45,27 @@ const ease = [0.23, 1, 0.32, 1] as const;
 
 function CommandHubView() {
   return (
-    <div className="p-4 sm:p-6 space-y-5 bg-white">
+    <div className="p-4 sm:p-6 space-y-5 bg-surface">
       {/* 4 Multi-Role Metric Columns */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-0 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-0 divide-y md:divide-y-0 md:divide-x divide-line">
 
         {/* Col 1: Surgery Sales Pipeline */}
         <div className="pr-0 lg:pr-5 pb-4 md:pb-0">
           <div className="flex items-center justify-between text-[11px]">
-            <span className="font-bold tracking-wider text-slate-400 uppercase text-[10px]">
+            <span className="font-bold tracking-wider text-ink-subtle uppercase text-[10px]">
               SURGERY SALES PIPELINE
-            </span>https://127.0.0.1:61535/static/artifacts/41cbfcb8-68b5-4dda-9c97-f93b9da7c002/.user_uploaded/media_1790231123044.png?csrf=61a48805-f4c4-4c57-89e9-afb38854232d
-            <span className="inline-flex items-center gap-0.5 rounded bg-emerald-50 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700">
+            </span>
+            <span className="inline-flex items-center gap-0.5 rounded bg-emerald-500/10 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
               <TrendingUpIcon className="h-2.5 w-2.5" /> +24.8% vs last cycle
             </span>
           </div>
-          <p className="mt-2 font-mono text-2xl lg:text-[26px] font-extrabold tracking-tight text-slate-900">
+          <p className="mt-2 font-mono text-2xl lg:text-[26px] font-extrabold tracking-tight text-ink">
             $148,200.00
           </p>
-          <div className="mt-2.5 flex items-center justify-between text-[11px] text-slate-500">
+          <div className="mt-2.5 flex items-center justify-between text-[11px] text-ink-muted">
             <span>Cases: 42 Scheduled</span>
-            <span className="inline-flex items-center gap-1 font-medium text-slate-700">
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" /> Bill Split: Active
+            <span className="inline-flex items-center gap-1 font-medium text-ink">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" /> Bill Split: Active
             </span>
           </div>
         </div>
@@ -73,57 +73,57 @@ function CommandHubView() {
         {/* Col 2: UDI Serialized Scan */}
         <div className="px-0 lg:px-5 py-4 md:py-0">
           <div className="flex items-center justify-between text-[11px]">
-            <span className="font-bold tracking-wider text-slate-400 uppercase text-[10px] flex items-center gap-1">
-              <BoxesIcon className="h-3 w-3 text-slate-400" /> UDI SERIALIZED SCAN
+            <span className="font-bold tracking-wider text-ink-subtle uppercase text-[10px] flex items-center gap-1">
+              <BoxesIcon className="h-3 w-3 text-ink-subtle" /> UDI SERIALIZED SCAN
             </span>
           </div>
-          <p className="mt-2 text-base lg:text-[17px] font-bold text-slate-900 truncate">
+          <p className="mt-2 text-base lg:text-[17px] font-bold text-ink truncate">
             Titanium Tibial Tray
           </p>
-          <p className="font-mono text-xs text-slate-500">SB-9823471-LOT-89</p>
+          <p className="font-mono text-xs text-ink-muted">SB-9823471-LOT-89</p>
           <div className="mt-2 flex flex-wrap items-center gap-2 text-[11px]">
-            <span className="inline-flex items-center gap-1 rounded bg-teal-50 border border-teal-200/60 px-1.5 py-0.5 text-[10px] font-semibold text-teal-700">
-              <CheckCircle2Icon className="h-2.5 w-2.5 text-teal-600" /> Tray Verified
+            <span className="inline-flex items-center gap-1 rounded bg-brand-soft border border-brand/30 px-1.5 py-0.5 text-[10px] font-semibold text-brand-ink dark:text-brand dark:bg-brand/10">
+              <CheckCircle2Icon className="h-2.5 w-2.5 text-brand" /> Tray Verified
             </span>
-            <span className="text-slate-500 text-[11px]">Baylor Surgicenter</span>
+            <span className="text-ink-muted text-[11px]">Baylor Surgicenter</span>
           </div>
         </div>
 
         {/* Col 3: Logistics & Cold-Chain */}
         <div className="px-0 lg:px-5 py-4 md:py-0">
           <div className="flex items-center justify-between text-[11px]">
-            <span className="font-bold tracking-wider text-slate-400 uppercase text-[10px] flex items-center gap-1">
-              <TruckIcon className="h-3 w-3 text-slate-400" /> LOGISTICS &amp; COLD-CHAIN
+            <span className="font-bold tracking-wider text-ink-subtle uppercase text-[10px] flex items-center gap-1">
+              <TruckIcon className="h-3 w-3 text-ink-subtle" /> LOGISTICS &amp; COLD-CHAIN
             </span>
           </div>
-          <p className="mt-2 text-sm font-bold text-slate-900 truncate">
+          <p className="mt-2 text-sm font-bold text-ink truncate">
             Courier: Marcus Thorne
           </p>
-          <p className="text-xs text-slate-500 truncate">Route: Memorial Hermann OR #4</p>
+          <p className="text-xs text-ink-muted truncate">Route: Memorial Hermann OR #4</p>
           <div className="mt-2 flex items-center justify-between text-[11px]">
-            <span className="inline-flex items-center gap-1 rounded bg-teal-50 border border-teal-200/60 px-1.5 py-0.5 text-[10px] font-semibold text-teal-700">
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-500 animate-pulse" /> +3.8°C Steady
+            <span className="inline-flex items-center gap-1 rounded bg-brand-soft border border-brand/30 px-1.5 py-0.5 text-[10px] font-semibold text-brand-ink dark:text-brand dark:bg-brand/10">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse" /> +3.8°C Steady
             </span>
-            <span className="font-mono font-semibold text-slate-700 text-xs">ETA 17:45</span>
+            <span className="font-mono font-semibold text-ink text-xs">ETA 17:45</span>
           </div>
         </div>
 
         {/* Col 4: Commission Settlement */}
         <div className="pl-0 lg:pl-5 pt-4 md:pt-0">
           <div className="flex items-center justify-between text-[11px]">
-            <span className="font-bold tracking-wider text-slate-400 uppercase text-[10px] flex items-center gap-1">
-              <WalletIcon className="h-3 w-3 text-slate-400" /> COMMISSION SETTLEMENT
+            <span className="font-bold tracking-wider text-ink-subtle uppercase text-[10px] flex items-center gap-1">
+              <WalletIcon className="h-3 w-3 text-ink-subtle" /> COMMISSION SETTLEMENT
             </span>
           </div>
-          <p className="mt-2 font-mono text-2xl lg:text-[26px] font-extrabold tracking-tight text-slate-900">
+          <p className="mt-2 font-mono text-2xl lg:text-[26px] font-extrabold tracking-tight text-ink">
             $4,200.00
           </p>
           <div className="mt-2 flex flex-wrap items-center gap-2 text-[11px]">
-            <span className="inline-flex items-center gap-1 rounded bg-teal-50 border border-teal-200/60 px-1.5 py-0.5 text-[10px] font-semibold text-teal-700">
-              <CheckCircle2Icon className="h-2.5 w-2.5 text-teal-600" /> Paid &amp; Synced to QB
+            <span className="inline-flex items-center gap-1 rounded bg-brand-soft border border-brand/30 px-1.5 py-0.5 text-[10px] font-semibold text-brand-ink dark:text-brand dark:bg-brand/10">
+              <CheckCircle2Icon className="h-2.5 w-2.5 text-brand" /> Paid &amp; Synced to QB
             </span>
           </div>
-          <p className="mt-1 text-[11px] text-slate-500">
+          <p className="mt-1 text-[11px] text-ink-muted">
             Tier: Ortho Principal <span className="mx-1">•</span> Rate: 14.5%
           </p>
         </div>
@@ -131,22 +131,22 @@ function CommandHubView() {
       </div>
 
       {/* Live Events Telemetry Footer Ticker */}
-      <div className="rounded-xl bg-slate-50/90 border border-slate-100 px-3.5 py-2.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-[11px]">
+      <div className="rounded-xl bg-surface-muted/90 border border-line px-3.5 py-2.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-[11px]">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="font-bold text-slate-700 uppercase tracking-wider text-[10px] flex items-center gap-1">
-            <RadioIcon className="h-3 w-3 text-teal-600 animate-pulse" /> LIVE EVENTS TELEMETRY:
+          <span className="font-bold text-ink uppercase tracking-wider text-[10px] flex items-center gap-1">
+            <RadioIcon className="h-3 w-3 text-brand animate-pulse" /> LIVE EVENTS TELEMETRY:
           </span>
-          <span className="inline-flex items-center gap-1 rounded bg-blue-50 border border-blue-200/60 px-2 py-0.5 text-[10px] font-medium text-blue-700">
+          <span className="inline-flex items-center gap-1 rounded bg-brand-soft border border-brand/30 px-2 py-0.5 text-[10px] font-medium text-brand-ink dark:text-brand dark:bg-brand/10">
             Shipment #SHP-4019 Delivered (Dock B)
           </span>
-          <span className="text-slate-600">
+          <span className="text-ink-muted">
             • Inventory Recount Completed: 1,840 items
           </span>
-          <span className="hidden lg:inline text-slate-600">
+          <span className="hidden lg:inline text-ink-muted">
             • New Surgery Case Approved (Dr. Vance)
           </span>
         </div>
-        <div className="shrink-0 font-mono text-[11px] font-semibold text-emerald-600 flex items-center gap-1">
+        <div className="shrink-0 font-mono text-[11px] font-semibold text-emerald-500 flex items-center gap-1">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
           Network Uptime: 99.99%
         </div>
@@ -512,34 +512,36 @@ export function HeroDashboard() {
 
   return (
     <div
-      className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xl shadow-slate-200/60"
+      className="overflow-hidden rounded-2xl border border-line bg-surface shadow-xl shadow-black/5 dark:shadow-black/40 transition-colors duration-200"
       role="img"
       aria-label={`H.O.L.E. APP dashboard — ${currentRole.label} view`}
     >
-      {/* ── Top Chrome / Header Bar matching Html_Body_3.png ───────────────── */}
-      <div className="flex flex-wrap items-center justify-between border-b border-slate-100 bg-[#FAFAFA] px-4 py-2.5 text-xs" aria-hidden>
-        {/* Left: Green status dot + Network name + Mesh badge */}
-        <div className="flex items-center gap-2">
+      {/* ── Top Chrome / Header Bar ───────────────── */}
+      <div className="flex flex-wrap items-center justify-between border-b border-line bg-surface-muted/60 px-4 py-2.5 text-xs" aria-hidden>
+        {/* Left: Logo + Green status dot + Network name + Mesh badge */}
+        <div className="flex items-center gap-2.5">
+          <Logo imgClassName="h-4 sm:h-4.5 w-auto object-contain opacity-90" />
+          <span className="text-line text-xs">|</span>
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
           </span>
-          <span className="hidden sm:inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-2 py-0.5 text-[10px] font-semibold text-[#00707E]">
+          <span className="hidden sm:inline-flex items-center rounded-full border border-brand/30 bg-brand-soft px-2 py-0.5 text-[10px] font-semibold text-brand-ink dark:text-brand dark:bg-brand/10">
             Mesh v4.19 Stable
           </span>
         </div>
 
         {/* Right: GPS Telemetry + Role Switcher Tabs */}
         <div className="flex items-center gap-3">
-          <div className="hidden lg:flex items-center gap-1.5 text-[11px] text-slate-500 font-medium">
+          <div className="hidden lg:flex items-center gap-1.5 text-[11px] text-ink-subtle font-medium">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             <span>GPS Telemetry 100%</span>
-            <span className="text-slate-300">|</span>
+            <span className="text-line">|</span>
             <span className="font-mono">Sync: 1.2s ago</span>
           </div>
 
           {/* ── Interactive role-switcher tabs ───────────────────────────── */}
-          <div className="flex items-center gap-1 rounded-lg bg-slate-100/90 p-0.5 border border-slate-200/60" aria-label="View dashboard as role">
+          <div className="flex items-center gap-1 rounded-lg bg-surface-muted/90 p-0.5 border border-line" aria-label="View dashboard as role">
             {ROLES.map((r) => (
               <button
                 key={r.id}
@@ -547,11 +549,11 @@ export function HeroDashboard() {
                 onMouseEnter={() => setActiveRole(r.id)}
                 onClick={() => setActiveRole(r.id)}
                 className={`inline-flex items-center gap-1 rounded-md px-2 py-1 text-[10px] font-semibold transition-all duration-150 ${activeRole === r.id
-                  ? "bg-[#00707E] text-white shadow-sm"
-                  : "text-slate-600 hover:bg-white/80 hover:text-slate-900"
+                  ? "bg-brand text-slate-950 font-bold shadow-sm"
+                  : "text-ink-muted hover:bg-surface hover:text-ink"
                   }`}
               >
-                {activeRole === r.id && <span className="h-1.5 w-1.5 rounded-full bg-white/70" />}
+                {activeRole === r.id && <span className="h-1.5 w-1.5 rounded-full bg-slate-950/70" />}
                 {r.label}
               </button>
             ))}
@@ -575,14 +577,14 @@ export function HeroDashboard() {
       ) : (
         <div className="grid grid-cols-12" aria-hidden>
           {/* Sidebar */}
-          <aside className="col-span-2 hidden border-r border-slate-100 bg-[#FAFAFA]/50 p-3 md:block">
+          <aside className="col-span-2 hidden border-r border-line bg-surface-muted/40 p-3 md:block">
             <ul className="space-y-0.5">
               {NAV_ITEMS.map(({ label, icon: Icon }) => {
                 const isActive = label === navActiveLabel;
                 return (
                   <li
                     key={label}
-                    className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-[11px] font-medium transition-colors ${isActive ? "bg-teal-50 text-[#00707E] font-semibold" : "text-slate-600 hover:text-slate-900"
+                    className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-[11px] font-medium transition-colors ${isActive ? "bg-brand-soft text-brand-ink dark:text-brand dark:bg-brand/15 font-semibold" : "text-ink-muted hover:text-ink hover:bg-surface-muted"
                       }`}
                   >
                     <Icon className="h-3.5 w-3.5 shrink-0" />
@@ -591,23 +593,23 @@ export function HeroDashboard() {
                 );
               })}
             </ul>
-            <div className="mt-4 rounded-xl bg-slate-50 border border-slate-100 p-2.5">
-              <p className="text-[10px] font-semibold text-slate-800">
+            <div className="mt-4 rounded-xl bg-surface border border-line p-2.5">
+              <p className="text-[10px] font-semibold text-ink">
                 {activeRole === "driver" ? "Sprinter #8" : "Southeast"}
               </p>
-              <p className="text-[9px] text-slate-500">
+              <p className="text-[9px] text-ink-muted">
                 {activeRole === "driver" ? "Active · En route" : "12 reps · 6 drivers"}
               </p>
             </div>
             {/* Role indicator at bottom of sidebar */}
-            <div className="mt-3 flex items-center gap-1.5 rounded-xl border border-teal-200/70 bg-teal-50/80 px-2 py-1.5">
-              <UserCogIcon className="h-3 w-3 text-[#00707E] shrink-0" />
-              <span className="text-[9px] font-semibold text-[#00707E] truncate">{currentRole.label}</span>
+            <div className="mt-3 flex items-center gap-1.5 rounded-xl border border-brand/30 bg-brand-soft px-2 py-1.5 dark:bg-brand/10">
+              <UserCogIcon className="h-3 w-3 text-brand shrink-0" />
+              <span className="text-[9px] font-semibold text-brand-ink dark:text-brand truncate">{currentRole.label}</span>
             </div>
           </aside>
 
           {/* Main content — animated role transition */}
-          <div className="col-span-12 p-4 sm:p-5 md:col-span-10 overflow-hidden bg-white">
+          <div className="col-span-12 p-4 sm:p-5 md:col-span-10 overflow-hidden bg-surface">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeRole}

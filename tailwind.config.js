@@ -1,24 +1,33 @@
-export default {content: [
-  './index.html',
-  './src/**/*.{js,ts,jsx,tsx}'
-],
+export default {
+  darkMode: 'class',
+  content: [
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}'
+  ],
   theme: {
     extend: {
       colors: {
         brand: {
-          DEFAULT: "#00C5DA",
-          ink: "#007886",
-          soft: "#E6F9FB",
-          line: "#BDEFF5",
+          DEFAULT: "rgb(var(--color-brand) / <alpha-value>)",
+          ink: "rgb(var(--color-brand-ink) / <alpha-value>)",
+          soft: "rgb(var(--color-brand-soft) / <alpha-value>)",
+          line: "rgb(var(--color-brand-line) / <alpha-value>)",
         },
-        canvas: "#F5F7F8",
-        surface: "#FFFFFF",
+        canvas: "rgb(var(--color-canvas) / <alpha-value>)",
+        surface: {
+          DEFAULT: "rgb(var(--color-surface) / <alpha-value>)",
+          muted: "rgb(var(--color-surface-muted) / <alpha-value>)",
+        },
+        card: "rgb(var(--color-card) / <alpha-value>)",
         ink: {
-          DEFAULT: "#0E1718",
-          muted: "#56625F",
-          subtle: "#838E90",
+          DEFAULT: "rgb(var(--color-ink) / <alpha-value>)",
+          muted: "rgb(var(--color-ink-muted) / <alpha-value>)",
+          subtle: "rgb(var(--color-ink-subtle) / <alpha-value>)",
         },
-        line: "#E3E8E9",
+        line: {
+          DEFAULT: "rgb(var(--color-line) / <alpha-value>)",
+          strong: "rgb(var(--color-line-strong) / <alpha-value>)",
+        },
         night: {
           DEFAULT: "#1B1B1B",
           2: "#222424",
@@ -35,11 +44,11 @@ export default {content: [
         mono: ["JetBrains Mono", "ui-monospace", "monospace"],
       },
       boxShadow: {
-        card: "0 1px 2px rgba(14,23,24,0.03), 0 4px 12px -3px rgba(14,23,24,0.05)",
-        float: "0 10px 24px -8px rgba(14,23,24,0.06), 0 2px 8px -2px rgba(14,23,24,0.02)",
-        phone: "0 12px 24px -8px rgba(14,23,24,0.09), 0 2px 8px -2px rgba(14,23,24,0.03)",
-        subtle: "0 1px 2px 0 rgba(14,23,24,0.03)",
-        glow: "0 0 20px -4px rgba(0,197,218,0.20)",
+        card: "0 1px 3px rgba(0,0,0,0.05), 0 6px 16px -4px rgba(0,0,0,0.06)",
+        float: "0 12px 28px -8px rgba(0,0,0,0.1), 0 3px 10px -2px rgba(0,0,0,0.04)",
+        phone: "0 16px 32px -8px rgba(0,0,0,0.18), 0 4px 12px -2px rgba(0,0,0,0.06)",
+        subtle: "0 1px 2px 0 rgba(0,0,0,0.04)",
+        glow: "0 0 25px -4px rgba(0,197,218,0.28)",
       },
     },
   },

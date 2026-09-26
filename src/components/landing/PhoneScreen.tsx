@@ -1,4 +1,3 @@
-import React from "react";
 import { BellIcon, HomeIcon, PackageIcon, TruckIcon, UserIcon } from "lucide-react";
 import { StatusChip } from "./StatusChip";
 import type { PhoneScreenData } from "../../types/landing";
