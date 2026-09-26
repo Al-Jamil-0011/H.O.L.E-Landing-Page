@@ -31,7 +31,7 @@ export function Hero() {
       <motion.div
         aria-hidden
         style={{ y: imageY }}
-        className="pointer-events-none absolute inset-x-0 top-0 h-[720px] select-none opacity-80 dark:opacity-40"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[720px] select-none opacity-90 dark:opacity-100"
       >
         <img
           src={HERO_IMAGE}
@@ -39,7 +39,7 @@ export function Hero() {
           className="h-full w-full object-cover object-[center_25%]"
         />
         {/* Light theme gradient overlay */}
-        <div className="absolute inset-0 block dark:hidden bg-gradient-to-b from-white/70 via-white/50 to-canvas" />
+        <div className="absolute inset-0 block dark:hidden bg-gradient-to-b from-white/50 via-white/10 to-canvas" />
         <div
           className="absolute inset-0 block dark:hidden"
           style={{

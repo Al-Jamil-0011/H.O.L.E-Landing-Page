@@ -2,13 +2,11 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   BoxesIcon,
-  CheckCircle2Icon,
   ClipboardListIcon,
   CoinsIcon,
   LayoutDashboardIcon,
   Navigation2Icon,
   PlusIcon,
-  RadioIcon,
   SearchIcon,
   ShieldCheckIcon,
   TrendingUpIcon,
@@ -20,7 +18,7 @@ import { Logo } from "./Logo";
 import { StatusChip } from "./StatusChip";
 
 /* ─── Role definitions ─────────────────────────────────────────────────── */
-type Role = "command" | "manager" | "rep" | "driver" | "finance";
+type Role = "manager" | "rep" | "driver" | "finance";
 
 const ROLES: { id: Role; label: string; subtitle: string }[] = [
   { id: "manager", label: "Manager", subtitle: "Regional Director · All Territories" },
@@ -43,117 +41,6 @@ const NAV_ITEMS = [
 /* ─── Role-specific dashboard content ──────────────────────────────────── */
 const ease = [0.23, 1, 0.32, 1] as const;
 
-function CommandHubView() {
-  return (
-    <div className="p-4 sm:p-6 space-y-5 bg-surface">
-      {/* 4 Multi-Role Metric Columns */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-0 divide-y md:divide-y-0 md:divide-x divide-line">
-
-        {/* Col 1: Surgery Sales Pipeline */}
-        <div className="pr-0 lg:pr-5 pb-4 md:pb-0">
-          <div className="flex items-center justify-between text-[11px]">
-            <span className="font-bold tracking-wider text-ink-subtle uppercase text-[10px]">
-              SURGERY SALES PIPELINE
-            </span>
-            <span className="inline-flex items-center gap-0.5 rounded bg-emerald-500/10 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
-              <TrendingUpIcon className="h-2.5 w-2.5" /> +24.8% vs last cycle
-            </span>
-          </div>
-          <p className="mt-2 font-mono text-2xl lg:text-[26px] font-extrabold tracking-tight text-ink">
-            $148,200.00
-          </p>
-          <div className="mt-2.5 flex items-center justify-between text-[11px] text-ink-muted">
-            <span>Cases: 42 Scheduled</span>
-            <span className="inline-flex items-center gap-1 font-medium text-ink">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" /> Bill Split: Active
-            </span>
-          </div>
-        </div>
-
-        {/* Col 2: UDI Serialized Scan */}
-        <div className="px-0 lg:px-5 py-4 md:py-0">
-          <div className="flex items-center justify-between text-[11px]">
-            <span className="font-bold tracking-wider text-ink-subtle uppercase text-[10px] flex items-center gap-1">
-              <BoxesIcon className="h-3 w-3 text-ink-subtle" /> UDI SERIALIZED SCAN
-            </span>
-          </div>
-          <p className="mt-2 text-base lg:text-[17px] font-bold text-ink truncate">
-            Titanium Tibial Tray
-          </p>
-          <p className="font-mono text-xs text-ink-muted">SB-9823471-LOT-89</p>
-          <div className="mt-2 flex flex-wrap items-center gap-2 text-[11px]">
-            <span className="inline-flex items-center gap-1 rounded bg-brand-soft border border-brand/30 px-1.5 py-0.5 text-[10px] font-semibold text-brand-ink dark:text-brand dark:bg-brand/10">
-              <CheckCircle2Icon className="h-2.5 w-2.5 text-brand" /> Tray Verified
-            </span>
-            <span className="text-ink-muted text-[11px]">Baylor Surgicenter</span>
-          </div>
-        </div>
-
-        {/* Col 3: Logistics & Cold-Chain */}
-        <div className="px-0 lg:px-5 py-4 md:py-0">
-          <div className="flex items-center justify-between text-[11px]">
-            <span className="font-bold tracking-wider text-ink-subtle uppercase text-[10px] flex items-center gap-1">
-              <TruckIcon className="h-3 w-3 text-ink-subtle" /> LOGISTICS &amp; COLD-CHAIN
-            </span>
-          </div>
-          <p className="mt-2 text-sm font-bold text-ink truncate">
-            Courier: Marcus Thorne
-          </p>
-          <p className="text-xs text-ink-muted truncate">Route: Memorial Hermann OR #4</p>
-          <div className="mt-2 flex items-center justify-between text-[11px]">
-            <span className="inline-flex items-center gap-1 rounded bg-brand-soft border border-brand/30 px-1.5 py-0.5 text-[10px] font-semibold text-brand-ink dark:text-brand dark:bg-brand/10">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse" /> +3.8°C Steady
-            </span>
-            <span className="font-mono font-semibold text-ink text-xs">ETA 17:45</span>
-          </div>
-        </div>
-
-        {/* Col 4: Commission Settlement */}
-        <div className="pl-0 lg:pl-5 pt-4 md:pt-0">
-          <div className="flex items-center justify-between text-[11px]">
-            <span className="font-bold tracking-wider text-ink-subtle uppercase text-[10px] flex items-center gap-1">
-              <WalletIcon className="h-3 w-3 text-ink-subtle" /> COMMISSION SETTLEMENT
-            </span>
-          </div>
-          <p className="mt-2 font-mono text-2xl lg:text-[26px] font-extrabold tracking-tight text-ink">
-            $4,200.00
-          </p>
-          <div className="mt-2 flex flex-wrap items-center gap-2 text-[11px]">
-            <span className="inline-flex items-center gap-1 rounded bg-brand-soft border border-brand/30 px-1.5 py-0.5 text-[10px] font-semibold text-brand-ink dark:text-brand dark:bg-brand/10">
-              <CheckCircle2Icon className="h-2.5 w-2.5 text-brand" /> Paid &amp; Synced to QB
-            </span>
-          </div>
-          <p className="mt-1 text-[11px] text-ink-muted">
-            Tier: Ortho Principal <span className="mx-1">•</span> Rate: 14.5%
-          </p>
-        </div>
-
-      </div>
-
-      {/* Live Events Telemetry Footer Ticker */}
-      <div className="rounded-xl bg-surface-muted/90 border border-line px-3.5 py-2.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-[11px]">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="font-bold text-ink uppercase tracking-wider text-[10px] flex items-center gap-1">
-            <RadioIcon className="h-3 w-3 text-brand animate-pulse" /> LIVE EVENTS TELEMETRY:
-          </span>
-          <span className="inline-flex items-center gap-1 rounded bg-brand-soft border border-brand/30 px-2 py-0.5 text-[10px] font-medium text-brand-ink dark:text-brand dark:bg-brand/10">
-            Shipment #SHP-4019 Delivered (Dock B)
-          </span>
-          <span className="text-ink-muted">
-            • Inventory Recount Completed: 1,840 items
-          </span>
-          <span className="hidden lg:inline text-ink-muted">
-            • New Surgery Case Approved (Dr. Vance)
-          </span>
-        </div>
-        <div className="shrink-0 font-mono text-[11px] font-semibold text-emerald-500 flex items-center gap-1">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-          Network Uptime: 99.99%
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function ManagerView() {
   const kpis = [
@@ -500,7 +387,7 @@ function FinanceView() {
 
 /* ─── Main HeroDashboard component ─────────────────────────────────────── */
 export function HeroDashboard() {
-  const [activeRole, setActiveRole] = useState<Role>("command");
+  const [activeRole, setActiveRole] = useState<Role>("manager");
 
   const currentRole = ROLES.find((r) => r.id === activeRole) || ROLES[0];
 
@@ -562,71 +449,57 @@ export function HeroDashboard() {
       </div>
 
       {/* ── Dashboard Content ───────────────────────────────────────────── */}
-      {activeRole === "command" ? (
-        <AnimatePresence mode="wait">
-          <motion.div
-            key="command"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2, ease }}
-          >
-            <CommandHubView />
-          </motion.div>
-        </AnimatePresence>
-      ) : (
-        <div className="grid grid-cols-12" aria-hidden>
-          {/* Sidebar */}
-          <aside className="col-span-2 hidden border-r border-line bg-surface-muted/40 p-3 md:block">
-            <ul className="space-y-0.5">
-              {NAV_ITEMS.map(({ label, icon: Icon }) => {
-                const isActive = label === navActiveLabel;
-                return (
-                  <li
-                    key={label}
-                    className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-[11px] font-medium transition-colors ${isActive ? "bg-brand-soft text-brand-ink dark:text-brand dark:bg-brand/15 font-semibold" : "text-ink-muted hover:text-ink hover:bg-surface-muted"
-                      }`}
-                  >
-                    <Icon className="h-3.5 w-3.5 shrink-0" />
-                    <span className="truncate">{label}</span>
-                  </li>
-                );
-              })}
-            </ul>
-            <div className="mt-4 rounded-xl bg-surface border border-line p-2.5">
-              <p className="text-[10px] font-semibold text-ink">
-                {activeRole === "driver" ? "Sprinter #8" : "Southeast"}
-              </p>
-              <p className="text-[9px] text-ink-muted">
-                {activeRole === "driver" ? "Active · En route" : "12 reps · 6 drivers"}
-              </p>
-            </div>
-            {/* Role indicator at bottom of sidebar */}
-            <div className="mt-3 flex items-center gap-1.5 rounded-xl border border-brand/30 bg-brand-soft px-2 py-1.5 dark:bg-brand/10">
-              <UserCogIcon className="h-3 w-3 text-brand shrink-0" />
-              <span className="text-[9px] font-semibold text-brand-ink dark:text-brand truncate">{currentRole.label}</span>
-            </div>
-          </aside>
-
-          {/* Main content — animated role transition */}
-          <div className="col-span-12 p-4 sm:p-5 md:col-span-10 overflow-hidden bg-surface">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeRole}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2, ease }}
-              >
-                {activeRole === "manager" && <ManagerView />}
-                {activeRole === "rep" && <RepView />}
-                {activeRole === "driver" && <DriverView />}
-                {activeRole === "finance" && <FinanceView />}
-              </motion.div>
-            </AnimatePresence>
+      <div className="grid grid-cols-12" aria-hidden>
+        {/* Sidebar */}
+        <aside className="col-span-2 hidden border-r border-line bg-surface-muted/40 p-3 md:block">
+          <ul className="space-y-0.5">
+            {NAV_ITEMS.map(({ label, icon: Icon }) => {
+              const isActive = label === navActiveLabel;
+              return (
+                <li
+                  key={label}
+                  className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-[11px] font-medium transition-colors ${isActive ? "bg-brand-soft text-brand-ink dark:text-brand dark:bg-brand/15 font-semibold" : "text-ink-muted hover:text-ink hover:bg-surface-muted"
+                    }`}
+                >
+                  <Icon className="h-3.5 w-3.5 shrink-0" />
+                  <span className="truncate">{label}</span>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="mt-4 rounded-xl bg-surface border border-line p-2.5">
+            <p className="text-[10px] font-semibold text-ink">
+              {activeRole === "driver" ? "Sprinter #8" : "Southeast"}
+            </p>
+            <p className="text-[9px] text-ink-muted">
+              {activeRole === "driver" ? "Active · En route" : "12 reps · 6 drivers"}
+            </p>
           </div>
+          {/* Role indicator at bottom of sidebar */}
+          <div className="mt-3 flex items-center gap-1.5 rounded-xl border border-brand/30 bg-brand-soft px-2 py-1.5 dark:bg-brand/10">
+            <UserCogIcon className="h-3 w-3 text-brand shrink-0" />
+            <span className="text-[9px] font-semibold text-brand-ink dark:text-brand truncate">{currentRole.label}</span>
+          </div>
+        </aside>
+
+        {/* Main content — animated role transition */}
+        <div className="col-span-12 p-4 sm:p-5 md:col-span-10 overflow-hidden bg-surface">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeRole}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2, ease }}
+            >
+              {activeRole === "manager" && <ManagerView />}
+              {activeRole === "rep" && <RepView />}
+              {activeRole === "driver" && <DriverView />}
+              {activeRole === "finance" && <FinanceView />}
+            </motion.div>
+          </AnimatePresence>
         </div>
-      )}
+      </div>
     </div>
   );
 }
