@@ -10,7 +10,7 @@ const offsets = ["lg:mt-16", "lg:mt-0", "lg:mt-24", "lg:mt-6", "lg:mt-20", "lg:m
 export function MobileApp() {
   const reduce = useReducedMotion();
   return (
-    <section aria-labelledby="mobile-title" className="overflow-hidden bg-surface py-24 sm:py-32">
+    <section aria-labelledby="mobile-title" className="overflow-hidden bg-surface py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
@@ -24,7 +24,7 @@ export function MobileApp() {
           </Reveal>
         </div>
 
-        <div className="no-scrollbar -mx-5 mt-16 flex gap-6 overflow-x-auto px-5 pb-6 lg:mx-0 lg:grid lg:grid-cols-6 lg:gap-4 lg:overflow-visible lg:px-0">
+        <div className="no-scrollbar -mx-5 mt-10 sm:mt-12 flex gap-6 overflow-x-auto px-5 pb-6 lg:mx-0 lg:grid lg:grid-cols-6 lg:gap-4 lg:overflow-visible lg:px-0">
           {mobileScreens.map((m, i) =>
             <motion.figure
               key={m.label}

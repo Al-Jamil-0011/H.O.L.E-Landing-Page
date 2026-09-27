@@ -40,7 +40,7 @@ export function Problem() {
   const n = fragmentedNodes.length;
 
   return (
-    <section aria-labelledby="problem-title" className="bg-canvas pt-20 sm:pt-28 pb-10 sm:pb-14 transition-colors duration-200">
+    <section aria-labelledby="problem-title" className="bg-canvas py-12 sm:py-16 transition-colors duration-200">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           id="problem-title"
@@ -49,7 +49,7 @@ export function Problem() {
           align="center"
         />
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-stretch">
+        <div className="mt-10 sm:mt-12 grid gap-10 lg:grid-cols-2 lg:items-stretch">
           <div className="flex flex-col justify-between gap-3.5 h-full">
             {painPoints.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.05} className="flex-1 flex flex-col">

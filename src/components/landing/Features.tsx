@@ -10,7 +10,7 @@ export function Features() {
   const feature = features.find((f) => f.id === activeId) ?? features[0];
 
   return (
-    <section id="features" aria-labelledby="features-title" className="bg-surface py-24 sm:py-32">
+    <section id="features" aria-labelledby="features-title" className="bg-surface py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           id="features-title"
@@ -18,7 +18,7 @@ export function Features() {
           description="Each module is built for how healthcare device teams actually work, and they all share the same data." />
         
 
-        <Reveal className="mt-12">
+        <Reveal className="mt-10 sm:mt-12">
           <div role="tablist" aria-label="Platform modules" className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 lg:mx-0 lg:justify-center lg:px-0">
             {features.map(({ id, label, icon: Icon }) => {
               const active = id === activeId;

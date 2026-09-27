@@ -10,7 +10,7 @@ export function Finance() {
   const isDark = theme === "dark";
 
   return (
-    <section id="finance" aria-labelledby="finance-title" className="bg-canvas py-24 sm:py-32 transition-colors duration-200">
+    <section id="finance" aria-labelledby="finance-title" className="bg-canvas py-12 sm:py-16 transition-colors duration-200">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           id="finance-title"
@@ -18,7 +18,7 @@ export function Finance() {
           description="Revenue, commission, vendor payments, expenses and shipping costs, each traced back to the sale, PO or shipment behind it."
         />
 
-        <Reveal className="mt-14">
+        <Reveal className="mt-10 sm:mt-12">
           <div className="grid gap-4 lg:grid-cols-12">
             <div className="rounded-3xl border border-line bg-surface p-6 shadow-card transition-colors duration-200 sm:p-8 lg:col-span-8">
               <div className="flex flex-wrap items-end justify-between gap-4">

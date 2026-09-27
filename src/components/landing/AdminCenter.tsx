@@ -8,7 +8,7 @@ const maxUsers = Math.max(...usersByRole.map((u) => u.count));
 
 export function AdminCenter() {
   return (
-    <section aria-labelledby="admin-title" className="bg-canvas py-24 sm:py-32 transition-colors duration-200">
+    <section aria-labelledby="admin-title" className="bg-canvas py-12 sm:py-16 transition-colors duration-200">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           id="admin-title"
@@ -16,7 +16,7 @@ export function AdminCenter() {
           description="Users, roles, inventory, shipments, sales, finance and system activity, all in one admin control center."
         />
 
-        <Reveal className="mt-14">
+        <Reveal className="mt-10 sm:mt-12">
           <div
             className="overflow-hidden rounded-3xl border border-line bg-surface shadow-card transition-colors duration-200 dark:shadow-[0_20px_50px_-20px_rgba(0,197,218,0.14)]"
             role="img"

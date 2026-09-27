@@ -19,7 +19,7 @@ export function Inventory() {
 
 
   return (
-    <section aria-labelledby="inventory-title" className="bg-canvas py-28 sm:py-32">
+    <section aria-labelledby="inventory-title" className="bg-canvas py-12 sm:py-16 transition-colors duration-200">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           id="inventory-title"
@@ -31,7 +31,7 @@ export function Inventory() {
         />
 
 
-        <div className="mt-14 grid gap-4 lg:grid-cols-12">
+        <div className="mt-10 sm:mt-12 grid gap-4 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
             <figure className="relative h-full min-h-[420px] overflow-hidden rounded-3xl">
               <img src={INVENTORY_IMAGE} alt="Sterile surgical trays and implant kits organized on hospital supply shelving" className="absolute inset-0 h-full w-full object-cover" />

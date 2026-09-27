@@ -11,7 +11,7 @@ export function Logistics() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="logistics" aria-labelledby="logistics-title" className="bg-surface py-24 sm:py-32">
+    <section id="logistics" aria-labelledby="logistics-title" className="bg-surface py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           id="logistics-title"
@@ -21,7 +21,7 @@ export function Logistics() {
           description="Managers assign a driver, the driver updates each step from the app, and everyone sees the same shipment status."
         />
 
-        <div className="mt-12 sm:mt-16 grid gap-8 lg:grid-cols-12 lg:items-stretch">
+        <div className="mt-10 sm:mt-12 grid gap-8 lg:grid-cols-12 lg:items-stretch">
           {/* Left Column: Milestones Stepper + Field Dispatch Card */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-6">
             {/* Milestone Tracker Card */}

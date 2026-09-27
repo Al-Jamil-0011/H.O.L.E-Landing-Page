@@ -12,7 +12,7 @@ export function Roles() {
   const role = roles.find((r) => r.id === activeId) ?? roles[0];
 
   return (
-    <section id="roles" aria-labelledby="roles-title" className="bg-canvas py-24 sm:py-32">
+    <section id="roles" aria-labelledby="roles-title" className="bg-canvas py-12 sm:py-16 transition-colors duration-200">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           id="roles-title"
@@ -23,7 +23,7 @@ export function Roles() {
           descriptionClassName="max-w-4xl sm:whitespace-nowrap"
         />
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:items-center">
+        <div className="mt-10 sm:mt-12 grid gap-8 lg:grid-cols-12 lg:items-center">
           {/* Left Column: Interactive Role Buttons (7 Roles) */}
           <div className="lg:col-span-5">
             <ul className="space-y-2.5">

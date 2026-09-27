@@ -171,7 +171,7 @@ export function HowItWorks() {
   const currentStep = steps[active];
 
   return (
-    <section id="how" aria-labelledby="how-title" className="bg-canvas pt-10 sm:pt-14 pb-20 sm:pb-28">
+    <section id="how" aria-labelledby="how-title" className="bg-canvas py-12 sm:py-16 transition-colors duration-200">
       <div className="mx-auto max-w-7xl px-5 lg:px-8" ref={ref}>
         {/* Section Heading: Clean, Easy to Read, Elegant */}
         <SectionHeading
@@ -181,7 +181,7 @@ export function HowItWorks() {
         />
 
         {/* 6 Step Horizontal Selector: Clean, Spacious, and Highly Usable */}
-        <Reveal className="mt-14">
+        <Reveal className="mt-10 sm:mt-12">
           <div
             className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6"
             onMouseEnter={() => setIsPaused(true)}
