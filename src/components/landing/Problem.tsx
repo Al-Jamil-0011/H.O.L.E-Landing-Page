@@ -40,7 +40,7 @@ export function Problem() {
   const n = fragmentedNodes.length;
 
   return (
-    <section aria-labelledby="problem-title" className="bg-canvas py-24 sm:py-32 transition-colors duration-200">
+    <section aria-labelledby="problem-title" className="bg-canvas pt-20 sm:pt-28 pb-10 sm:pb-14 transition-colors duration-200">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           id="problem-title"
@@ -49,27 +49,31 @@ export function Problem() {
           align="center"
         />
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div className="space-y-3.5">
+        <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-stretch">
+          <div className="flex flex-col justify-between gap-3.5 h-full">
             {painPoints.map((p, i) => (
-              <Reveal key={p.title} delay={i * 0.05}>
-                <div className="rounded-2xl border border-line bg-surface p-4 sm:p-5 shadow-subtle transition-all duration-200 hover:border-brand/40">
+              <Reveal key={p.title} delay={i * 0.05} className="flex-1 flex flex-col">
+                <div className="group h-full flex flex-col justify-center rounded-2xl border border-line bg-surface p-4 sm:p-5 shadow-subtle transition-all duration-200 hover:border-brand/60 hover:bg-surface-muted/50 hover:shadow-card hover:-translate-y-0.5 dark:hover:border-brand/50 dark:hover:bg-night-2/60">
                   <div className="flex items-center gap-3">
-                    <span className="grid h-7 w-7 place-items-center rounded-xl bg-canvas text-xs font-bold font-mono text-ink-subtle ring-1 ring-line">
+                    <span className="grid h-7 w-7 place-items-center rounded-xl bg-canvas text-xs font-bold font-mono text-ink-subtle ring-1 ring-line transition-all duration-200 group-hover:ring-brand/40 group-hover:bg-brand-soft/70 group-hover:text-brand-ink dark:group-hover:bg-brand/10 dark:group-hover:text-brand">
                       0{i + 1}
                     </span>
-                    <p className="font-semibold text-ink text-sm sm:text-base">{p.title}</p>
+                    <p className="font-semibold text-ink text-sm sm:text-base transition-colors duration-200 group-hover:text-brand-ink dark:group-hover:text-brand">
+                      {p.title}
+                    </p>
                   </div>
-                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-ink-muted pl-10">{p.text}</p>
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-ink-muted pl-10">
+                    {p.text}
+                  </p>
                 </div>
               </Reveal>
             ))}
           </div>
 
-          <Reveal>
+          <Reveal className="h-full flex flex-col">
             <div
               ref={ref}
-              className="relative h-[460px] overflow-hidden rounded-3xl border border-line bg-surface sm:h-[520px]"
+              className="relative flex-1 min-h-[460px] sm:min-h-[520px] overflow-hidden rounded-3xl border border-line bg-surface"
               style={{
                 backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
                 backgroundSize: "22px 22px",

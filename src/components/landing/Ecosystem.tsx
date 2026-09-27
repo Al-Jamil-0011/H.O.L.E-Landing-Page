@@ -10,7 +10,7 @@ export function Ecosystem() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="ecosystem" aria-labelledby="ecosystem-title" className="bg-canvas py-24 sm:py-32 transition-colors duration-200">
+    <section id="ecosystem" aria-labelledby="ecosystem-title" className="bg-canvas py-12 sm:py-16 transition-colors duration-200">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           id="ecosystem-title"
@@ -19,45 +19,47 @@ export function Ecosystem() {
         />
 
         {/* Bento Composition: Interactive Role Chain (Left) & 3D Connected Platform Visual (Right) */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-12 lg:items-center">
+        <div className="mt-10 sm:mt-12 grid gap-8 lg:grid-cols-12 lg:items-stretch">
           {/* Left Column: Role Progression Flow */}
-          <Reveal className="lg:col-span-5">
-            <div className="rounded-3xl border border-line bg-surface p-7 sm:p-9 shadow-card">
-              <div className="flex items-center justify-between border-b border-line pb-4">
-                <div>
-                  <p className="font-display text-base font-bold text-ink">Role-to-Role Handover</p>
-                  <p className="text-xs text-ink-subtle">Zero data lost between transitions</p>
+          <Reveal className="lg:col-span-5 h-full flex flex-col">
+            <div className="rounded-3xl border border-line bg-surface p-6 sm:p-8 shadow-card h-full flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between border-b border-line pb-4">
+                  <div>
+                    <p className="font-display text-base font-bold text-ink">Role-to-Role Handover</p>
+                    <p className="text-xs text-ink-subtle">Zero data lost between transitions</p>
+                  </div>
+                  <span className="rounded-full bg-brand-soft px-2.5 py-1 text-[11px] font-semibold text-brand-ink border border-brand-line dark:text-brand dark:bg-brand/10">
+                    Live Sync
+                  </span>
                 </div>
-                <span className="rounded-full bg-brand-soft px-2.5 py-1 text-[11px] font-semibold text-brand-ink border border-brand-line dark:text-brand dark:bg-brand/10">
-                  Live Sync
-                </span>
-              </div>
 
-              <ol className="relative mt-6 space-y-5">
-                <span className="absolute bottom-5 left-5 top-5 w-px bg-line" aria-hidden />
-                {!reduce && (
-                  <motion.span
-                    aria-hidden
-                    className="absolute left-[18px] h-2 w-2 rounded-full bg-brand ring-4 ring-brand/20"
-                    animate={{ top: ["4%", "92%"] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                  />
-                )}
-                {roleChain.map(({ label, detail, icon: Icon }, idx) => (
-                  <li key={label} className="relative flex items-center gap-4">
-                    <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-surface ring-1 ring-line shadow-subtle">
-                      <Icon className="h-4 w-4 text-brand-ink dark:text-brand" aria-hidden />
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between">
-                        <p className="font-semibold text-ink text-sm">{label}</p>
-                        <span className="text-[10px] font-mono text-ink-subtle">Step 0{idx + 1}</span>
+                <ol className="relative mt-6 space-y-4 sm:space-y-5">
+                  <span className="absolute bottom-5 left-5 top-5 w-px bg-line" aria-hidden />
+                  {!reduce && (
+                    <motion.span
+                      aria-hidden
+                      className="absolute left-[18px] h-2 w-2 rounded-full bg-brand ring-4 ring-brand/20"
+                      animate={{ top: ["4%", "92%"] }}
+                      transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                    />
+                  )}
+                  {roleChain.map(({ label, detail, icon: Icon }, idx) => (
+                    <li key={label} className="relative flex items-center gap-4">
+                      <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-surface ring-1 ring-line shadow-subtle">
+                        <Icon className="h-4 w-4 text-brand-ink dark:text-brand" aria-hidden />
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between">
+                          <p className="font-semibold text-ink text-sm">{label}</p>
+                          <span className="text-[10px] font-mono text-ink-subtle">Step 0{idx + 1}</span>
+                        </div>
+                        <p className="text-xs text-ink-muted leading-relaxed">{detail}</p>
                       </div>
-                      <p className="text-xs text-ink-muted leading-relaxed">{detail}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
+                    </li>
+                  ))}
+                </ol>
+              </div>
 
               <div className="mt-6 rounded-2xl bg-canvas p-4 text-xs text-ink-muted border border-line/60">
                 <span className="font-semibold text-ink">Unified Architecture:</span> Every update from a phone or browser instantly reflects in accounting, warehouse, and hospital feeds.
@@ -66,14 +68,14 @@ export function Ecosystem() {
           </Reveal>
 
           {/* Right Column: 3D Platform Ecosystem Illustration & Feature Highlights */}
-          <Reveal className="lg:col-span-7">
-            <div className="relative overflow-hidden rounded-3xl border border-line bg-surface p-3 sm:p-4 shadow-card">
+          <Reveal className="lg:col-span-7 h-full flex flex-col">
+            <div className="relative overflow-hidden rounded-3xl border border-line bg-surface p-3 sm:p-4 shadow-card h-full flex flex-col justify-between">
               {/* Illustration Frame */}
-              <div className="relative overflow-hidden rounded-2xl bg-surface">
+              <div className="relative flex-1 min-h-[300px] overflow-hidden rounded-2xl bg-surface">
                 <img
                   src={ECOSYSTEM_IMAGE}
                   alt="Connected medical device ecosystem showing real-time data streams between Hospital Hub, Patient Transport, Sterile Tray and Operating Room"
-                  className="h-auto w-full object-cover transition-transform duration-400 hover:scale-[1.02]"
+                  className="h-full w-full object-cover transition-transform duration-400 hover:scale-[1.02]"
                 />
 
                 {/* Floating pill tags on illustration */}
@@ -89,7 +91,7 @@ export function Ecosystem() {
               </div>
 
               {/* Bottom Feature Badges */}
-              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3 p-2">
+              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3 p-1">
                 <div className="flex items-center gap-2.5 rounded-xl bg-canvas p-3 text-xs border border-line/50">
                   <div className="grid h-6 w-6 place-items-center rounded-lg bg-brand-soft text-brand-ink dark:bg-brand/15 dark:text-brand">
                     <Check className="h-3.5 w-3.5" />

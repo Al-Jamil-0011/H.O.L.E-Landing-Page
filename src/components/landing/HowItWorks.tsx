@@ -171,7 +171,7 @@ export function HowItWorks() {
   const currentStep = steps[active];
 
   return (
-    <section id="how" aria-labelledby="how-title" className="bg-canvas py-24 sm:py-32">
+    <section id="how" aria-labelledby="how-title" className="bg-canvas pt-10 sm:pt-14 pb-20 sm:pb-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8" ref={ref}>
         {/* Section Heading: Clean, Easy to Read, Elegant */}
         <SectionHeading

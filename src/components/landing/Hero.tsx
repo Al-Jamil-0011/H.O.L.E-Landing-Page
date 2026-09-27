@@ -2,7 +2,6 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import {
   ArrowRightIcon,
   BoxesIcon,
-  CheckIcon,
   CoinsIcon,
   CompassIcon,
   ShieldCheckIcon,
@@ -12,7 +11,7 @@ import {
 } from "lucide-react";
 import { HeroDashboard } from "./HeroDashboard";
 
-const HERO_IMAGE = "/b82a359f-8057-4983-97b6-90f5e6a5a822.jpg";
+const HERO_IMAGE = "/hospital-hallway.jpg";
 const ease = [0.23, 1, 0.32, 1] as const;
 
 export function Hero() {
@@ -27,34 +26,34 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="relative overflow-hidden bg-canvas pb-0 pt-32 sm:pt-36 transition-colors duration-300"
     >
-      {/* ── Background hospital photograph — subtle & cinematic ─────────── */}
+      {/* ── Background hospital corridor photograph — clean, modern & atmospheric ─────────── */}
       <motion.div
         aria-hidden
         style={{ y: imageY }}
-        className="pointer-events-none absolute inset-x-0 top-0 h-[720px] select-none opacity-90 dark:opacity-100"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[760px] sm:h-[840px] select-none overflow-hidden"
       >
         <img
           src={HERO_IMAGE}
           alt=""
-          className="h-full w-full object-cover object-[center_25%]"
+          className="h-full w-full object-cover object-[center_36%] opacity-85 dark:opacity-00 dark:brightness-80 transition-all duration-300"
         />
-        {/* Light theme gradient overlay */}
-        <div className="absolute inset-0 block dark:hidden bg-gradient-to-b from-white/50 via-white/10 to-canvas" />
+        {/* Light theme gradient overlay — clean, modern and airy */}
+        <div className="absolute inset-0 block dark:hidden bg-gradient-to-b from-white/65 via-white/30 to-canvas" />
         <div
           className="absolute inset-0 block dark:hidden"
           style={{
             background:
-              "radial-gradient(ellipse 70% 50% at 50% 35%, rgba(249,249,249,0.92) 0%, rgba(249,249,249,0.5) 100%)",
+              "radial-gradient(ellipse 75% 55% at 50% 30%, rgba(249,249,249,0.92) 0%, rgba(249,249,249,0.50) 65%, rgba(249,249,249,0.98) 100%)",
           }}
         />
 
-        {/* Dark theme gradient overlay */}
-        <div className="absolute inset-0 hidden dark:block bg-gradient-to-b from-[#1B1B1B]/80 via-[#1B1B1B]/60 to-canvas" />
+        {/* Dark theme gradient overlay — sleek, cinematic and deep */}
+        <div className="absolute inset-0 hidden dark:block bg-gradient-to-b from-[#1B1B1B]/85 via-[#1B1B1B]/65 to-canvas" />
         <div
           className="absolute inset-0 hidden dark:block"
           style={{
             background:
-              "radial-gradient(ellipse 75% 55% at 50% 35%, rgba(27,27,27,0.85) 0%, rgba(27,27,27,0.98) 100%)",
+              "radial-gradient(ellipse 75% 55% at 50% 30%, rgba(27,27,27,0.90) 0%, rgba(27,27,27,0.65) 65%, rgba(27,27,27,0.98) 100%)",
           }}
         />
       </motion.div>
@@ -73,10 +72,24 @@ export function Hero() {
           transition={{ duration: 0.35, ease }}
           className="mx-auto max-w-5xl text-center"
         >
-          {/* Eyebrow badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand-soft/80 px-4 py-1.5 text-[11px] font-semibold tracking-[0.14em] uppercase text-brand-ink shadow-sm dark:bg-brand/10 dark:text-brand dark:border-brand/40">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse" />
-            THE CONNECTED HEALTHCARE OPERATIONS PLATFORM
+          {/* Eyebrow badge with decorative flanking lines */}
+          <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-5">
+            {/* Left decorative line */}
+            <div
+              aria-hidden="true"
+              className="h-px flex-1 max-w-[40px] sm:max-w-[90px] md:max-w-[140px] lg:max-w-[180px] bg-gradient-to-r from-transparent via-brand/40 to-brand/80 dark:via-brand/30 dark:to-brand/90"
+            />
+
+            {/* Eyebrow badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 text-[11px] font-semibold tracking-[0.14em] uppercase text-brand-ink">
+              THE CONNECTED HEALTHCARE OPERATIONS PLATFORM
+            </div>
+
+            {/* Right decorative line */}
+            <div
+              aria-hidden="true"
+              className="h-px flex-1 max-w-[40px] sm:max-w-[90px] md:max-w-[140px] lg:max-w-[180px] bg-gradient-to-l from-transparent via-brand/40 to-brand/80 dark:via-brand/30 dark:to-brand/90"
+            />
           </div>
 
           {/* Main Headline */}
@@ -135,10 +148,6 @@ export function Hero() {
             transition={{ duration: 0.35, delay: 0.2, ease }}
             className="mb-3 flex justify-center"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/90 px-3.5 py-1 text-[11px] font-medium text-brand-ink shadow-sm backdrop-blur dark:text-brand">
-              <CheckIcon className="h-3.5 w-3.5 text-brand" aria-hidden="true" />
-              Hover or click role tabs to preview live view for each team
-            </span>
           </motion.div>
 
           {/* The dashboard card */}
