@@ -7,18 +7,30 @@ interface StoreBadgesProps {
 }
 
 const stores = [
-  { icon: AppleIcon, small: "Download on the", big: "App Store" },
-  { icon: PlayIcon, small: "Get it on", big: "Google Play" },
+  {
+    icon: AppleIcon,
+    small: "Download on the",
+    big: "App Store",
+    href: "https://apps.apple.com/us/app/h-o-l-e/id6782267938",
+  },
+  {
+    icon: PlayIcon,
+    small: "Get it on",
+    big: "Google Play",
+    href: "https://play.google.com/store/apps/details?id=com.holepackage.app",
+  },
 ];
 
 export function StoreBadges({ dark = false, layout = "row", className = "" }: StoreBadgesProps) {
   const isCol = layout === "col";
   return (
     <div className={`flex ${isCol ? "flex-col items-end gap-2" : "flex-wrap items-center gap-3"} ${className}`}>
-      {stores.map(({ icon: Icon, small, big }) => (
+      {stores.map(({ icon: Icon, small, big, href }) => (
         <a
           key={big}
-          href="#demo"
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
           className={`inline-flex h-10 sm:h-10.5 items-center gap-2.5 rounded-xl border px-3.5 transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand active:scale-95 ${
             isCol ? "w-[152px] justify-start" : ""
           } ${

@@ -42,7 +42,8 @@ export function MobileApp() {
   };
 
   return (
-    <section id="mobile" aria-labelledby="mobile-title" className="overflow-hidden bg-surface py-12 sm:py-16 transition-colors duration-200">
+    <section id="mobile" aria-labelledby="mobile-title" className="relative scroll-mt-16 sm:scroll-mt-20 overflow-hidden bg-surface py-12 sm:py-16 transition-colors duration-200">
+      <span id="download" className="sr-only" aria-hidden="true" />
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         {/* Header with Title and Store Badges */}
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-center">

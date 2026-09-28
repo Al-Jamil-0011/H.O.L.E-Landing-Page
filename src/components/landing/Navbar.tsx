@@ -18,11 +18,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-200 ease-out ${
-        scrolled || open
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-200 ease-out ${scrolled || open
           ? "border-line bg-surface/85 shadow-sm backdrop-blur-xl"
           : "border-transparent bg-transparent"
-      }`}
+        }`}
     >
       <nav aria-label="Primary" className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
         <a
@@ -50,10 +49,10 @@ export function Navbar() {
           <ThemeToggle />
 
           <a
-            href="#demo"
-            className="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-ink-muted transition-colors duration-150 hover:text-ink"
+            href="#mobile"
+            className="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-ink-muted transition-colors duration-150 hover:text-ink hover:bg-surface-muted/60"
           >
-            Sign in
+            Download
           </a>
 
           <a
@@ -113,11 +112,11 @@ export function Navbar() {
                 Request a Demo
               </a>
               <a
-                href="#demo"
+                href="#mobile"
                 onClick={() => setOpen(false)}
-                className="flex h-10 items-center justify-center rounded-lg border border-line bg-surface text-sm font-medium text-ink"
+                className="flex h-10 items-center justify-center rounded-lg border border-line bg-surface text-sm font-medium text-ink hover:bg-surface-muted"
               >
-                Sign in
+                Download App
               </a>
             </div>
           </motion.div>
